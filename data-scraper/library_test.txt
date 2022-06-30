@@ -1,0 +1,1053 @@
+[
+{
+"name":arduino-cloud-provider-examples,
+"category":Communication,
+"description":b'Examples of how to connect various Arduino boards to cloud providers',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamdarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.2.0(latest)","1.1.0","1.0.0"]
+}
+,
+{
+"name":arduino-uno-wifi-dev-ed-library,
+"category":Communication,
+"description":b'This library allows users to use network features like rest and mqtt. Includes some tools for the ESP8266.Use this library only with Arduino Uno WiFi Developer Edition.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with theavrarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino Nano","Arduino Uno","Arduino Yún"]
+"relaeases":["0.0.3(latest)"]
+}
+,
+{
+"name":arduino_bhy2host,
+"category":Communication,
+"description":b'Library for Host boards that interact with BHY2 chip on Nicla Sense MEProvides the APIs for a host board to interact with Nicla Sense ME board. The host board can be used to make a DFU or configure/read BHY sensors on the Nicla Sense ME via Eslov.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, mbedarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.0.7(latest)","1.0.6","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","0.0.1"]
+}
+,
+{
+"name":arduino_braccio_plusplus,
+"category":Communication,
+"description":b'Board support library for the Arduino Braccio++ 6-DOF robot arm.This library allows you to control the Arduino Braccio++ 6-DOF 2nd generation robot arm.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thembed, mbed_nanoarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Nano 33 BLE"]
+"relaeases":["1.3.2(latest)","1.3.1","1.3.0","1.2.3","1.2.2","1.2.1","1.2.0","1.1.0","1.0.0"]
+}
+,
+{
+"name":arduino_connectionhandler,
+"category":Communication,
+"description":b'Arduino Library for network connection management (WiFi, GSM, NB, [Ethernet])Originally part of ArduinoIoTCloud',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, esp32, esp8266, mbed, megaavr, mbed_nano, mbed_portenta, mbed_niclaarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Nano Every","Arduino Uno WiFi REV2","Arduino Zero","Portenta H7"]
+"relaeases":["0.6.6(latest)","0.6.5","0.6.4","0.6.3","0.6.2","0.6.1","0.6.0","0.5.1","0.5.0","0.4.9","0.4.8","0.4.7","0.4.6","0.4.5","0.4.4","0.4.3","0.4.2","0.4.1","0.4.0","0.3.3","0.3.2","0.3.1","0.2.0","0.1.4","0.1.3","0.1.2","0.1.0"]
+}
+,
+{
+"name":arduino_debugutils,
+"category":Communication,
+"description":b'Debugging module with different debug levels, timestamps and printf-style output.This class provides functionality useful for debugging sketches via printf-style statements.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.3.0(latest)","1.2.0","1.1.0","1.0.0","0.1.3","0.1.2"]
+}
+,
+{
+"name":arduino_machinecontrol,
+"category":Communication,
+"description":b'Arduino Library for Portenta Machine Control - PMC',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thembed, mbed_portentaarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Portenta H7"]
+"relaeases":["1.1.0(latest)","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":arduino_multiwifi,
+"category":Communication,
+"description":b'allows to configure multiple WiFi networks.This library is a platform-independent wrapper around the WiFi library that allows to configure multiple WiFi networks and try to connect to the first available one.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.0(latest)"]
+}
+,
+{
+"name":arduino_oauth,
+"category":Communication,
+"description":b'[BETA] OAuth 1.0 client library for Arduino.This library depends on ArduinoHttpClient and ArduinoBearSSL.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.1.0(latest)"]
+}
+,
+{
+"name":arduino_portenta_ota,
+"category":Communication,
+"description":b"Firmware update for the Portenta H7.This library allows performing a firmware update on the Arduino Portenta H7. The firmware can be stored in various different locations such as within the microcontroller's flash, on an external SD card or on the QSPI flash chip.",
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thembed, mbed_portenta, mbed_niclaarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Portenta H7"]
+"relaeases":["1.0.3(latest)","1.0.2","1.0.1","1.0.0","0.2.0","0.1.0"]
+}
+,
+{
+"name":arduino_sciencejournal,
+"category":Communication,
+"description":b'The Arduino Science Journal firmware for the Physics Lab kit and the Arduino Nano 33 BLE Sense.This library depends on the ArduinoBLE and MKRIMU libraries.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, nrf52, mbedarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.1.1(latest)","1.1.0","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":arduinobearssl,
+"category":Communication,
+"description":b'Port of BearSSL to Arduino.This library depends on ArduinoECCX08.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.7.2(latest)","1.7.1","1.7.0","1.6.0","1.5.0","1.4.0","1.3.0","1.2.0","1.1.0","1.0.1","1.0.0"]
+}
+,
+{
+"name":arduinoble,
+"category":Communication,
+"description":b'Enables Bluetooth\xc3\x82\xc2\xae Low Energy connectivity on the Arduino MKR WiFi 1010, Arduino UNO WiFi Rev.2, Arduino Nano 33 IoT, Arduino Nano 33 BLE and Nicla Sense ME.This library supports creating a Bluetooth\xc3\x82\xc2\xae Low Energy peripheral & central mode.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, megaavr, mbed, apollo3, mbed_nano, mbed_portenta, mbed_niclaarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Nano Every","Arduino Uno WiFi REV2","Arduino Zero","Portenta H7"]
+"relaeases":["1.3.1(latest)","1.3.0","1.2.2","1.2.1","1.2.0","1.1.3","1.1.2","1.1.1","1.1.0","1.0.0","0.1.2","0.1.1","0.1.0"]
+}
+,
+{
+"name":arduinocloudthing,
+"category":Communication,
+"description":b'Easly connect your Arduino/Genuino board to the Arduino Cloud',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.7.3(latest)","1.7.2","1.7.1","1.7.0","1.6.5","1.6.4","1.6.3","1.6.2","1.6.1","1.6.0","1.5.4","1.5.3","1.5.2","1.5.1","1.5.0","1.4.1","1.4.0","1.3.1","1.1.0"]
+}
+,
+{
+"name":arduinoeccx08,
+"category":Communication,
+"description":b'Arduino Library for the Atmel/Microchip ECC508 and ECC608 crypto chips',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, megaavr, mbed, mbed_nano, mbed_portenta, esp32architectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Nano Every","Arduino Uno WiFi REV2","Arduino Zero","Portenta H7"]
+"relaeases":["1.3.6(latest)","1.3.5","1.3.4","1.3.3","1.3.2","1.3.1","1.3.0","1.2.0","1.1.2","1.1.1","1.1.0","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":arduinohttpclient,
+"category":Communication,
+"description":b"[EXPERIMENTAL] Easily interact with web servers from Arduino, using HTTP and WebSocket's.This library can be used for HTTP (GET, POST, PUT, DELETE) requests to a web server. It also supports exchanging messages with WebSocket servers. Based on Adrian McEwen's HttpClient library.",
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.4.0(latest)","0.3.2","0.3.1","0.3.0","0.2.0","0.1.1","0.1.0"]
+}
+,
+{
+"name":arduinoiotcloud,
+"category":Communication,
+"description":b'This library allows to connect to the Arduino IoT Cloud service.It provides a ConnectionManager to handle connection/disconnection, property-change updates and events callbacks. The supported boards are MKRGSM, MKR1000 and WiFi101.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thembed, samd, esp8266, mbed_nano, mbed_portenta, mbed_niclaarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Zero","Portenta H7"]
+"relaeases":["1.6.1(latest)","1.6.0","1.5.0","1.4.1","1.4.0","1.3.1","1.3.0","1.2.1","1.2.0","1.1.1","1.1.0","1.0.2","1.0.1","1.0.0","0.13.1","0.13.0","0.12.0","0.11.3","0.11.2","0.11.1","0.11.0","0.10.0","0.9.3","0.9.2","0.9.1","0.9.0","0.8.4","0.8.3","0.8.1","0.8.0","0.7.0","0.6.1","0.6.0","0.5.11","0.5.10","0.5.9","0.5.8","0.5.7","0.5.6","0.5.5","0.5.4","0.5.3","0.5.2","0.5.1","0.5.0","0.4.1"]
+}
+,
+{
+"name":arduinoiotcloudbearssl,
+"category":Communication,
+"description":b'Port of BearSSL to Arduino.This library depends on ArduinoECCX08.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.2(latest)","1.1.1"]
+}
+,
+{
+"name":arduinomodbus,
+"category":Communication,
+"description":b'Use Modbus equipment with your Arduino.Using TCP or RS485 shields, like the MKR 485 Shield. This library depends on the ArduinoRS485 library.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.6(latest)","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","1.0.0"]
+"boards":["Modbus Tutorial from Control Solutions","Modbus Application Protocol (PDF)","Modbus FAQ"]
+}
+,
+{
+"name":arduinomqttclient,
+"category":Communication,
+"description":b'[BETA] Allows you to send and receive MQTT messages using Arduino.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.1.5(latest)","0.1.4","0.1.3","0.1.2","0.1.1","0.1.0"]
+}
+,
+{
+"name":arduinors485,
+"category":Communication,
+"description":b'Enables sending and receiving data using the RS-485 standard with RS-485 shields, like the MKR 485 Shield.This library supports the Maxim Integrated MAX3157 and equivalent chipsets.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.2(latest)","1.0.1","1.0.0"]
+"boards":["begin()","end()","available()","peek()","read()","write()","flush()","beginTransmission()","endTransmission()","receive()","noReceive()","sendBreak()","sendBreakMicroseconds()","setPins()"]
+}
+,
+{
+"name":bridge,
+"category":Communication,
+"description":b'Enables the communication between the Linux processor and the microcontroller. For Arduino/Genuino Y\xc3\x83\xc2\xban, Y\xc3\x83\xc2\xban Shield and TRE only.The Bridge library feature: access to the shared storage, run and manage linux processes, open a remote console, access to the linux file system, including the SD card, enstablish http clients or servers.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.7.0(latest)","1.6.3","1.6.2","1.6.1","1.6.0","1.1.0","1.0.7","1.0.6","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":ciao,
+"category":Communication,
+"description":b'Enables communication between microcontroller and MIPS cpu. Natively support network communications, terminal (linux) and file access.Create your own Ciao Connector for your needs and easily use it. Works only on Linino based boards like Y\xc3\x83\xc2\xban, Y\xc3\x83\xc2\xban Mini, Tian and Industrial 101.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with theavr, samdarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano","Arduino Nano 33 IoT","Arduino Uno","Arduino Yún","Arduino Zero"]
+"relaeases":["0.1.1(latest)","0.1.0"]
+}
+,
+{
+"name":ethernet,
+"category":Communication,
+"description":b'Enables network connection (local and Internet) using the Arduino Ethernet Board or Shield.With this library you can use the Arduino Ethernet (shield or board) to connect to Internet. The library provides both Client and server functionalities. The library permits you to connect to a local network also with DHCP and to resolve DNS.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.0.0(latest)","1.1.2","1.1.1","1.1.0","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","1.0.0"]
+"boards":["Ethernet.begin()","Ethernet.dnsServerIP()","Ethernet.gatewayIP()","Ethernet.hardwareStatus()","Ethernet.init()","Ethernet.linkStatus()","Ethernet.localIP()","Ethernet.MACAddress()","Ethernet.maintain()","Ethernet.setDnsServerIP()","Ethernet.setGatewayIP()","Ethernet.setLocalIP()","Ethernet.setMACAddress()","Ethernet.setRetransmissionCount()","Ethernet.setRetransmissionTimeout()","Ethernet.setSubnetMask()","Ethernet.subnetMask()"]
+}
+,
+{
+"name":gsm,
+"category":Communication,
+"description":b'Enables GSM/GRPS network connection using the Arduino GSM Shield.Use this library to make/receive voice calls, to send and receive SMS with the Quectel M10 GSM module.This library also allows you to connect to internet through the GPRS networks. You can either use web Clients and Servers.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with theavrarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino Nano","Arduino Uno","Arduino Yún"]
+"relaeases":["1.0.6(latest)","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":lora-node,
+"category":Communication,
+"description":b'LoRa Node library for Arduino LoRa Node Shield.This library allows you to send and receive LoRaWan packets',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thenrf52architecture.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.1.0.1(latest)1.0.0,
+"relaeases":["1.0.1(latest)","1.0.0"]
+}
+,
+{
+"name":mkrgsm,
+"category":Communication,
+"description":b'Enables GSM/GRPS network connection using the Arduino MKR GSM 1400 board.Use this library to make/receive voice calls, to send and receive SMS with the u-blox SARA-U201 module.This library also allows you to connect to internet through the GPRS networks. You can either use web Clients and Servers.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamdarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.5.0(latest)","1.4.2","1.4.1","1.4.0","1.3.3","1.3.2","1.3.1","1.3.0","1.2.1","1.2.0","1.1.2","1.1.1","1.1.0","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":mkrnb,
+"category":Communication,
+"description":b'Enables NB/GRPS network connection using the Arduino MKR NB 1500 board.This library also allows you to connect to internet through NarrowBand IoT or LTE Cat M1 networks.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamdarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.5.1(latest)","1.5.0","1.4.0","1.3.2","1.3.1","1.3.0","1.2.0","1.1.0","1.0.1","1.0.0"]
+}
+,
+{
+"name":mkrwan,
+"category":Communication,
+"description":b'Support library for MKR WAN 1300/1310Provides APIs to communicate with LoRa and LoRaWAN networks',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, mbed, mbed_portentaarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero","Portenta H7"]
+"relaeases":["1.1.0(latest)","1.0.15","1.0.14","1.0.13","1.0.12","1.0.11","1.0.10","1.0.9","1.0.8","1.0.7","1.0.6","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":mkrwan_v2,
+"category":Communication,
+"description":b'Support library for MKR WAN 1300/1310 - firmware 1.3.1Provides APIs to communicate with LoRa and LoraWAN networks',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamd, mbedarchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.3.2(latest)","1.3.1"]
+}
+,
+{
+"name":physicslabfirmware,
+"category":Communication,
+"description":b'Firmware for the Physics Lab kit.This library depends on the ArduinoBLE and MKRIMU libraries.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with thesamdarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 IoT","Arduino Zero"]
+"relaeases":["1.0.0(latest)"]
+}
+,
+{
+"name":spacebrewyun,
+"category":Communication,
+"description":b'Enables the communication between interactive objects using WebSockets. For Arduino Y\xc3\x83\xc2\xban only.This library was developed to enable you to easily connect the Arduino Y\xc3\x83\xc2\xban to Spacebrew. To learn more about Spacebrew visit Spacebrew.cc',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible with theavrarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino Nano","Arduino Uno","Arduino Yún"]
+"relaeases":["1.0.2(latest)","1.0.1","1.0.0"]
+}
+,
+{
+"name":temboo,
+"category":Communication,
+"description":b'This library enables calls to Temboo, a platform that connects Arduino/Genuino boards to 100+ APIs, databases, code utilities and more.Use this library to connect your Arduino or Genuino board to Temboo, making it simple to interact with a vast array of web-based resources and services.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.1(latest)","1.2.0","1.1.8","1.1.7","1.1.6","1.1.4","1.1.3","1.1.2","1.1.1","1.1.0"]
+}
+,
+,
+{
+"name":wifi-link,
+"category":Communication,
+"description":b'Enables network connection (local and Internet) using the Arduino WiFi Boards.With this library you can instantiate Servers, Clients and send/receive UDP packets through WiFi. The shield can connect either to open or encrypted networks (WEP, WPA). The IP address can be assigned statically or through a DHCP. The library can also manage DNS.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.1(latest)","1.0.0"]
+}
+,
+{
+"name":wifi101,
+"category":Communication,
+"description":b'Network driver for ATMEL WINC1500 module (used on Arduino/Genuino Wifi Shield 101 and MKR1000 boards)This library implements a network driver for devices based on the ATMEL WINC1500 wifi module',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.16.1(latest)","0.16.0","0.15.3","0.15.2","0.15.1","0.15.0","0.14.5","0.14.4","0.14.3","0.14.2","0.14.1","0.14.0","0.13.0","0.12.1","0.12.0","0.11.2","0.11.1","0.11.0","0.10.0","0.9.1","0.9.0","0.8.0","0.7.0","0.6.0","0.5.1","0.5.0"]
+"boards":["CheckWiFi101FirmwareVersion: Reads the required firmware number required from library and matches with the one installed on the board or the shield.","FirmwareUpdater: The sketch that must be loaded to allow the firmware and certificates update process through the integrated plugin of Arduino Software (IDE) rel. 1.6.10 or later."]
+}
+,
+{
+"name":wifinina,
+"category":Communication,
+"description":b'Enables network connection (local and Internet) with the Arduino MKR WiFi 1010, Arduino MKR VIDOR 4000, Arduino UNO WiFi Rev.2 and Nano 33 IoT.With this library you can instantiate Servers, Clients and send/receive UDP packets through WiFi. The board can connect either to open or encrypted networks (WEP, WPA). The IP address can be assigned statically or through a DHCP. The library can also manage DNS.',
+"author":"null",
+"maintainer": "null",
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.8.13(latest)","1.8.12","1.8.11","1.8.10","1.8.9","1.8.8","1.8.7","1.8.6","1.8.5","1.8.4","1.8.3","1.8.2","1.8.1","1.8.0","1.7.1","1.7.0","1.6.0","1.5.0","1.4.0","1.3.0","1.2.0","1.1.1","1.1.0","1.0.0"]
+"boards":["WiFi.begin()","WiFi.end()","WiFi.beginAP()","WiFi.beginEnterprise()","WiFi.disconnect()","WiFi.config()","WiFi.setDNS()","WiFi.setHostname()","WiFi.setTimeout()","WiFi.SSID()","WiFi.BSSID()","WiFi.RSSI()","WiFi.channel()","WiFi.encryptionType()","WiFi.scanNetworks()","WiFi.ping()","WiFi.status()","WiFi.macAddress()","WiFi.firmwareVersion()","WiFi.lowPowerMode()","WiFi.noLowPowerMode()","WiFi.reasonCode()","WiFi.hostByName()","WiFi.localIP()","WiFi.subnetMask()","WiFi.gatewayIP()","WiFi.getTime()"]
+}
+,
+{
+"name":107-arduino-cyphal,
+"category":Communication,
+"description":b'Arduino library for providing a convenient C++ interface for accessing OpenCyphal.',
+"author":b'Author:Alexander Entinger',
+"maintainer":b'Maintainer:Alexander Entinger',
+"compatibility":This library is compatible with thesamd, mbed, mbed_nano, mbed_portenta, mbed_edge, esp32, rp2040architectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Zero","Portenta H7"]
+"relaeases":["2.1.0(latest)","2.0.0"]
+}
+,
+{
+"name":107-arduino-mcp2515,
+"category":Communication,
+"description":b'Arduino library for controlling the MCP2515 in order to receive/transmit CAN frames.',
+"author":b'Author:Alexander Entinger',
+"maintainer":b'Maintainer:Alexander Entinger',
+"compatibility":This library is compatible with thesamd, esp32, mbed, mbed_nano, mbed_portenta, mbed_edge, rp2040architectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Zero","Portenta H7"]
+"relaeases":["1.3.4(latest)","1.3.3","1.3.2","1.3.1","1.3.0","1.2.3","1.2.2","1.2.1","1.2.0","1.1.3","1.1.2","1.1.1","1.1.0","1.0.0"]
+}
+,
+{
+"name":107-arduino-nmea-parser,
+"category":Communication,
+"description":b'Arduino library for interfacing with any GPS, GLONASS, Galileo or GNSS module and interpreting its NMEA messages.',
+"author":b'Author:Alexander Entinger',
+"maintainer":b'Maintainer:Alexander Entinger',
+"compatibility":This library is compatible with thesamd, esp32, mbed, mbed_nano, mbed_portenta, mbed_edgearchitectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano 33 BLE","Arduino Nano 33 IoT","Arduino Zero","Portenta H7"]
+"relaeases":["1.1.3(latest)","1.1.2","1.1.1","1.1.0","1.0.3","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":abb-powerone-aurora-inverter-communication-protocol,
+"category":Communication,
+"description":b'ABB PowerOne Aurora inverter communication protocol for Arduino, esp8266 and esp32 (Library).Library that implements the complete communication protocol of ABB (ex PowerOne) Aurora Inverter suitable with Arduino, esp8266 and esp32.',
+"author":b'Author:Renzo Mischianti',
+"maintainer":b'Maintainer:Renzo Mischianti',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.3(latest)","1.0.2"]
+}
+,
+{
+"name":acan,
+"category":Communication,
+"description":b'A Teensy 3.1 / 3.2, 3.5, 3.6 CAN driver.This library is a CAN network driver. Compatible with ACAN2515, ACAN2517, ACAN2517FD libraries. Default configuration enables reception of all frames. Reception filters can be easily defined.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.0.3(latest)","2.0.2","2.0.1","2.0.0","1.0.6","1.0.5","1.0.4","1.0.2"]
+}
+,
+{
+"name":acan2515,
+"category":Communication,
+"description":b'Driver for MCP2515 CAN ControllerArduino CAN network driver for the MCP2515 CAN Controller. Compatible with ACAN, ACAN2515Tiny, ACAN2517, ACAN2517FD libraries. The default configuration enables to receive all the frames. User can easily defines reception filters. Runs on ESP32 from version 1.1.2, on Raspberry Pi Pico.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.1.0(latest)","2.0.9","2.0.8","2.0.7","2.0.6","2.0.5","2.0.4","2.0.3","2.0.2","2.0.1","2.0.0","1.1.3","1.1.2","1.1.1","1.1.0","1.0.4","1.0.3","1.0.1","1.0.0"]
+}
+,
+{
+"name":acan2515tiny,
+"category":Communication,
+"description":b'Driver for MCP2515 CAN ControllerArduino CAN network driver for the MCP2515 CAN Controller, an adaptation of ACAN2515 library in order to reduce the memory footprint. Compatible with ACAN, ACAN2515, ACAN2517, ACAN2517FD libraries. The default configuration enables to receive all the frames. User can easily defines reception filters.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.5(latest)","1.0.4","1.0.3","1.0.2","1.0.1"]
+}
+,
+{
+"name":acan2517,
+"category":Communication,
+"description":b'Driver for the MCP2517FD and the MCP2518FD CAN Controllers (CAN 2.0B mode)This library is an Arduino CAN network driver for the MCP2517FD and the MCP2518FD CAN Controllers, in CAN 2.0B mode (CANFD is not handled by this driver). Compatible with ACAN, ACAN2515, ACAN2515Tiny, ACAN2517FD libraries. Default configuration sends and receives any frame \xc3\xa2\xc2\x80\xc2\x93 no default filter to provide. Reception filters (up to 32) can be easily defined. Runs on ESP32 from version 1.1.0. For a library for the MCP2517FD and the MCP2518FD CAN Controllers in CANFD mode, see the ACAN2517FD library.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.12(latest)","1.1.11","1.1.10","1.1.9","1.1.8","1.1.7","1.1.6","1.1.5","1.1.4","1.1.3","1.1.2","1.1.1","1.1.0","1.0.4","1.0.3","1.0.2","1.0.0"]
+}
+,
+{
+"name":acan2517fd,
+"category":Communication,
+"description":b'Driver for MCP2517FD and MCP2518FD CAN Controller (CAN FD mode)This library is an Arduino CAN network driver for the MCP2517FD and the MCP2518FD CAN Controller, in CAN FD mode. Compatible with ACAN, ACAN2515, ACAN2517 libraries, with ACAN_T4 library from version 2.1.0. Default configuration sends and receives any frame \xc3\xa2\xc2\x80\xc2\x93 no default filter to provide. Reception filters (up to 32) can be easily defined. Compatible with ESP32 from version 1.1.0.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.1.9(latest)","2.1.8","2.1.7","2.1.6","2.1.5","2.1.4","2.1.3","2.1.2","2.1.1","2.1.0","2.0.1","2.0.0","1.1.6","1.1.5","1.1.4","1.1.3","1.1.2","1.1.0","1.0.4","1.0.3","1.0.2","1.0.1"]
+}
+,
+{
+"name":acan_esp32,
+"category":Communication,
+"description":b'An ESP32 CAN Driver.An ACAN Style library for ESP32 CAN Peripheral. Compatible with ACAN2515, ACAN2515Tiny, ACAN2517, ACAN2517FD libraries. Default configuration enables reception of all frames. Reception filters can be easily defined. Note releases before 1.0.3 do not compile on ESP32 Arduino 2.x.x.',
+"author":b'Author:Mohamed Irfanulla, Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.6(latest)","1.0.5","1.0.4","1.0.3","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":acan_stm32,
+"category":Communication,
+"description":b'A STM32 CAN driver.This library is a CAN network driver for NUCLEO-F303K8 and NUCLEO-L432KC. Compatible with ACAN2515, ACAN2517, ACAN2517FD libraries. Default configuration enables reception of all frames. Reception filters can be easily defined.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.0(latest)"]
+}
+,
+{
+"name":acan_t4,
+"category":Communication,
+"description":b'A Teensy 4.0 / 4.1 CAN / CANFD driver.This library is a CAN network driver for CAN1, CAN2 and CAN3. Compatible with ACAN2515, ACAN2517 libraries. It handles CANFD mode on CAN3, and is compatible with ACAN2517FD library. For CAN and CANFD, default configuration enables reception of all frames. Reception filters can be easily defined.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.5(latest)","1.1.4","1.1.3","1.1.2","1.1.1","1.1.0","1.0.0"]
+}
+,
+{
+"name":acanfd_featherm4can,
+"category":Communication,
+"description":b'An Adafruit Feather M4 CAN board CANFD driver.This library is a CANFD network driver for Adafruit Feather M4 CAN Express. Compatible with ACAN2515, ACAN2517, ACAN2517FD libraries. Default configuration sends and receives any frame \xc3\xa2\xc2\x80\xc2\x93 no default filter to provide. Standard reception filters (up to 128) and extended reception filters (up to 128) can be easily defined.',
+"author":b'Author:Pierre Molinaro',
+"maintainer":b'Maintainer:Pierre Molinaro',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.2(latest)","1.2.1","1.2.0","1.1.0","1.0.1","1.0.0"]
+}
+,
+{
+"name":acespi,
+"category":Communication,
+"description":b'Unified interface for selecting hardware or software SPI implementations on Arduino platforms.Provides HardSpiInterface, HardSpiFastInterface, SimpleSpiInterface, and SimpleSpiFastInterface.',
+"author":b'Author:Brian T. Park',
+"maintainer":b'Maintainer:Brian T. Park',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.4.0(latest)","0.3.0","0.2.0","0.1.0"]
+}
+,
+{
+"name":acetmi,
+"category":Communication,
+"description":b'Interfaces for communicating with the TM1637 and TM1638 LED controllers on Arduino platforms.Provides SimpleTmi1637Interface, SimpleTmi1637FastInterface, SimpleTmi1638Interface, and SimpleTmi1638FastInterface.',
+"author":b'Author:Brian T. Park',
+"maintainer":b'Maintainer:Brian T. Park',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.6.0(latest)","0.5.0","0.4.0","0.3.0","0.2.0","0.1.0"]
+}
+,
+{
+"name":acewire,
+"category":Communication,
+"description":b'Fast and compact software I2C implementations (SimpleWireInterface, SimpleWireFastInterface) on Arduino platforms. Also provides adapter classes to allow the use of third party I2C libraries using the same API.Provides 8 adapter interfaces (TwoWireInterface, FeliasFoggWireInterface, MarpleWireInterface, RaemondWireInterface, SeeedWireInterface, TestatoWireInterface, ThexenoWireInterface, TodbotWireInterface).',
+"author":b'Author:Brian T. Park',
+"maintainer":b'Maintainer:Brian T. Park',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.4.1(latest)","0.4.0","0.3.2","0.3.1","0.3.0","0.2.0","0.1.0"]
+}
+,
+{
+"name":acs-m1128,
+"category":Communication,
+"description":b'ACS-M1128 SAM Element IoT WiFi ConnectivityArduino Library for SAM Element IoT WiFi Connectivity',
+"author":b'Author:SAM Element',
+"maintainer":b'Maintainer:Benny',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.2.1-b2(latest)"]
+}
+,
+{
+"name":ad7173,
+"category":Communication,
+"description":b'Arduino library for Analog Devices AD7173 analog digital converterIt implements basic functionality of the AD7173 for using for different purposes.',
+"author":b'Author:Silver Kuusik',
+"maintainer":b'Maintainer:Silver Kuusik',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.5.3(latest)","0.5.2","0.5.1","0.5.0","0.4.0","0.3.3","0.3.2","0.3.0","0.2.1","0.2.0","0.1.0"]
+}
+,
+{
+"name":adafruit-blefirmata,
+"category":Communication,
+"description":b"Modified Firmata code to work with Adafruit's nRF8001 Breakout and BlueFruit modules",
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.2(latest)","1.1.1","1.1.0","1.0.0"]
+}
+,
+{
+"name":adafruit-bluefruitle-nrf51,
+"category":Communication,
+"description":b'Arduino library for nRF51822-based Adafruit Bluefruit LE modules',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.10.0(latest)","1.9.6","1.9.5","1.9.4","1.9.3","1.9.2","1.9.1","1.9.0","1.8.0","1.7.8","1.7.7","1.7.6","1.7.5","1.7.4","1.7.3","1.7.2","1.7.0","1.6.0","1.0.0"]
+}
+,
+{
+"name":adafruit-cc3000-library,
+"category":Communication,
+"description":b"Library code for Adafruit's CC3000 WiFi breakouts.The CC3000 allows an Arduino to connect to a WiFi network and access the internet.  See more at: https://learn.adafruit.com/adafruit-cc3000-wifi/",
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.4(latest)","1.0.3","1.0.0"]
+}
+,
+{
+"name":adafruit-esp8266,
+"category":Communication,
+"description":b'Example code for ESP8266 chipset',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.0(latest)","1.0.1","1.0.0"]
+}
+,
+{
+"name":adafruit-floppy,
+"category":Communication,
+"description":b"Adafruit's floppy disk drive interfacing library",
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.1.0(latest)"]
+}
+,
+{
+"name":adafruit-fona-library,
+"category":Communication,
+"description":b'Arduino library for the Adafruit FONA',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.3.10(latest)","1.3.9","1.3.8","1.3.7","1.3.6","1.3.5","1.3.4","1.3.3","1.3.2","1.3.0","1.2.0","1.1.1","1.1.0","1.0.0"]
+}
+,
+{
+"name":adafruit-io-arduino,
+"category":Communication,
+"description":b'Arduino library to access Adafruit IO.Arduino library to access Adafruit IO using the Adafruit AirLift, ESP8266, ESP32, ESP32-S2, M0 WINC1500, WICED, MKR1000, Ethernet, or FONA hardware.',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["4.2.0(latest)","4.1.1","4.1.0","4.0.2","4.0.1","4.0.0","3.9.1","3.8.0","3.7.0","3.6.4","3.6.3","3.6.0","3.5.1","3.5.0","3.4.0","3.3.1","3.3.0","3.2.3","3.2.2","3.2.1","3.2.0","3.1.0","3.0.0","2.7.23","2.7.22","2.7.21","2.7.19","2.7.18","2.7.17","2.7.16","2.7.15","2.7.14","2.7.13","2.7.12","2.7.11","2.7.10","2.7.9","2.7.8","2.7.7","2.7.4","2.7.3","2.7.2","2.7.1","2.7.0","2.6.0","2.5.0","2.4.3","2.4.2","2.4.1","2.4.0","2.3.1","2.2.0","2.1.1","2.0.1","2.0.0","1.0.1","1.0.0"]
+}
+,
+{
+"name":adafruit-mfrc630-rfid,
+"category":Communication,
+"description":b'Arduino library for I2C and SPI access to the MFRC630 RFID/Near Field Communication chip',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.0(latest)","1.0.1","1.0.0"]
+}
+,
+{
+"name":adafruit-mqtt-library,
+"category":Communication,
+"description":b'MQTT library that supports the FONA, ESP8266, ESP32, Yun, and generic Arduino Client hardware.Simple MQTT library that supports the bare minimum to publish and subscribe to topics.',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.4.2(latest)","2.4.1","2.4.0","2.3.0","2.2.0","2.1.0","2.0.0","1.3.0","1.1.0","1.0.3","1.0.1","1.0.0","0.20.4","0.20.3","0.20.2","0.20.1","0.20.0","0.17.0","0.16.2","0.16.1","0.16.0","0.15.0","0.14.2","0.14.1","0.13.3","0.13.2","0.13.0","0.12.3","0.12.2","0.12.1","0.12.0","0.11.1","0.11.0","0.10.0","0.9.2","0.9.1","0.9.0","0.2.0"]
+}
+,
+{
+"name":adafruit-nrf8001,
+"category":Communication,
+"description":b"Drivers for Adafruit's nRF8001 Bluetooth Low Energy Breakout",
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.1(latest)","1.0.0"]
+}
+,
+{
+"name":adafruit-pn532,
+"category":Communication,
+"description":b'Arduino library for SPI and I2C access to the PN532 RFID/Near Field Communication chip',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.2(latest)","1.2.1","1.2.0","1.0.4","1.0.3","1.0.0"]
+}
+,
+{
+"name":adafruit-si4713-library,
+"category":Communication,
+"description":b'Arduino library for the Si4714 FM+RDS Transmitter in the Adafruit shop',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.0(latest)","1.1.3","1.1.2","1.1.1","1.1.0","1.0.0"]
+}
+,
+{
+"name":adafruit-tinyusb-library,
+"category":Communication,
+"description":b'TinyUSB library for ArduinoSupport nRF5x, SAMD21, SAMD51, RP2040, ESP32-S2',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.12.0(latest)","1.11.0","1.10.3","1.10.2","1.10.1","1.10.0","1.9.4","1.9.3","1.9.2","1.9.1","1.9.0","1.8.0","1.7.1","1.7.0","1.6.0","1.5.0","1.4.4","1.4.3","1.4.2","1.4.1","1.4.0","1.3.3","1.3.2","1.3.1","1.3.0","1.1.0","1.0.3","1.0.1","1.0.0","0.10.5","0.10.4","0.10.2","0.10.1","0.10.0","0.9.1","0.9.0","0.8.2","0.8.1","0.8.0","0.7.1","0.7.0","0.6.0","0.5.0","0.0.1"]
+}
+,
+{
+"name":adafruit-wippersnapper,
+"category":Communication,
+"description":b'Arduino client for Adafruit.io WipperSnapper',
+"author":b'Author:Adafruit',
+"maintainer":b'Maintainer:Adafruit',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.0-beta.38(latest)","1.0.0-beta.9","1.0.0-beta.8","1.0.0-beta.6","1.0.0-beta.4","1.0.0-beta.1","0.1.0"]
+}
+,
+{
+"name":adf7023,
+"category":Communication,
+"description":b'An Arduino library for RF communication with Analog Devices RF Transceiver ADF7023.Supports Arduino, ESP, STM32Duino.',
+"author":b'Author:Igor Levkov',
+"maintainer":b'Maintainer:Igor Levkov',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.2(latest)","1.0.1","1.0.0"]
+}
+,
+{
+"name":ads1115-driver,
+"category":Communication,
+"description":b'Lightweight arduino library for the ADS1115 ADC converter ICMore details and documentation can be found on the following link: https://github.com/Wh1teRabbitHU/ADS1115-Driver',
+"author":b'Author:Wh1teRabbitHU',
+"maintainer":b'Maintainer:Tamas Ruszka',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.2(latest)","1.0.0"]
+}
+,
+{
+"name":advancedserial,
+"category":Communication,
+"description":b'An Arduino library with additions to vanilla Serial.print(). Chainable methods and verbosity levels. Suitable for debug messages.',
+"author":b'Author:Vasily Klenov',
+"maintainer":b'Maintainer:Vasily Klenov',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.4(latest)","1.2.2","1.2.1"]
+}
+,
+{
+"name":aiomodule,
+"category":Communication,
+"description":b'AIO Modules for ESP8266 and Arduino',
+"author":b'Author:Miguel Angel Bermeo',
+"maintainer":b'Maintainer:AIO Javeriana',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.1.0(latest)"]
+}
+,
+{
+"name":ais-4g-board,
+"category":Communication,
+"description":b'Enables AIS 4G network connection use by AIS 4G BoardAllows you to connect to the internet via AIS 4G networks',
+"author":b'Author:AIS',
+"maintainer":b'Maintainer:Gravitech Thai',
+"compatibility":This library is compatible with theesp32architecture.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.1.0.3(latest)1.0.21.0.1,
+"relaeases":["1.0.3(latest)","1.0.2","1.0.1"]
+}
+,
+{
+"name":alertme,
+"category":Communication,
+"description":b"Allows for sending email and SMS from nothing but the ESP8266!By using SMTP and/or and your carrier's free Email-to-SMS portal, your ESP8266 project can send alerts, log data or even love notes to your devices!",
+"author":b'Author:Connor Nishijima',
+"maintainer":b'Maintainer:Connor Nishijima',
+"compatibility":This library is compatible with theesp8266architecture.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.1.0.0(latest),
+"relaeases":["1.0.0(latest)"]
+}
+,
+{
+"name":algoduino,
+"category":Communication,
+"description":b'A simple API client implementation in C++ for the Algorand Blockchain.An easy to use Library to interact with the Algorand Blockchain.',
+"author":b'Author:Algoduino',
+"maintainer":b'Maintainer:Ted Nivan from Algoduino',
+"compatibility":This library is compatible with theespressif8266, espressif32, esp8266, esp32architectures.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.0.2.3(latest)0.2.20.2.10.2.00.1.0,
+"relaeases":["0.2.3(latest)","0.2.2","0.2.1","0.2.0","0.1.0"]
+}
+,
+{
+"name":aliyuniotsdk,
+"category":Communication,
+"description":b'A toplevel client library for aliyun MQTT messaging.\xc3\xa6\xc2\xad\xc2\xa4\xc3\xa5\xc2\xba\xc2\x93\xc3\xa5\xc2\x8f\xc2\xaf\xc3\xa4\xc2\xbb\xc2\xa5\xc3\xa5\xc2\xb8\xc2\xae\xc3\xa5\xc2\x8a\xc2\xa9\xc3\xa4\xc2\xbd\xc2\xa0\xc3\xa5\xc2\xbf\xc2\xab\xc3\xa9\xc2\x80\xc2\x9f\xc3\xa8\xc2\xbf\xc2\x9e\xc3\xa6\xc2\x8e\xc2\xa5\xc3\xa9\xc2\x98\xc2\xbf\xc3\xa9\xc2\x87\xc2\x8c\xc3\xa4\xc2\xba\xc2\x91 IoT \xc3\xa5\xc2\xb9\xc2\xb3\xc3\xa5\xc2\x8f\xc2\xb0\xc3\xaf\xc2\xbc\xc2\x8c\xc3\xa9\xc2\x80\xc2\x9a\xc3\xa8\xc2\xbf\xc2\x87\xc3\xa5\xc2\x92\xc2\x8c\xc3\xa9\xc2\x98\xc2\xbf\xc3\xa9\xc2\x87\xc2\x8c\xc3\xa4\xc2\xba\xc2\x91\xc3\xa7\xc2\x89\xc2\xa9\xc3\xa8\xc2\x81\xc2\x94\xc3\xa7\xc2\xbd\xc2\x91\xc3\xa5\xc2\xbc\xc2\x80\xc3\xa5\xc2\x8f\xc2\x91\xc3\xa5\xc2\xb9\xc2\xb3\xc3\xa5\xc2\x8f\xc2\xb0\xc3\xa9\xc2\x85\xc2\x8d\xc3\xa5\xc2\x90\xc2\x88\xc3\xaf\xc2\xbc\xc2\x8c\xc3\xa5\xc2\x8f\xc2\xaf\xc3\xa5\xc2\xbf\xc2\xab\xc3\xa9\xc2\x80\xc2\x9f\xc3\xa5\xc2\xae\xc2\x9e\xc3\xa7\xc2\x8e\xc2\xb0\xc3\xa5\xc2\x90\xc2\x84\xc3\xa7\xc2\xa7\xc2\x8d\xc3\xa7\xc2\xa1\xc2\xac\xc3\xa4\xc2\xbb\xc2\xb6\xc3\xa5\xc2\xba\xc2\x94\xc3\xa7\xc2\x94\xc2\xa8\xc3\xaf\xc2\xbc\xc2\x8c\xc3\xa5\xc2\x8c\xc2\x85\xc3\xa6\xc2\x8b\xc2\xac\xc3\xa4\xc2\xba\xc2\x86\xc3\xa5\xc2\xbe\xc2\x88\xc3\xa4\xc2\xb8\xc2\x8a\xc3\xa5\xc2\xb1\xc2\x82\xc3\xa7\xc2\x9a\xc2\x84\xc3\xa5\xc2\xb0\xc2\x81\xc3\xa8\xc2\xa3\xc2\x85\xc3\xaf\xc2\xbc\xc2\x8c\xc3\xa6\xc2\x97\xc2\xa0\xc3\xa9\xc2\x9c\xc2\x80\xc3\xa8\xc2\x87\xc2\xaa\xc3\xa5\xc2\xb7\xc2\xb1\xc3\xa8\xc2\xa7\xc2\xa3\xc3\xa6\xc2\x9e\xc2\x90\xc3\xa6\xc2\x95\xc2\xb0\xc3\xa6\xc2\x8d\xc2\xae\xc3\xa4\xc2\xbd\xc2\x93\xc3\xaf\xc2\xbc\xc2\x8c\xc3\xa7\xc2\xbb\xc2\x91\xc3\xa5\xc2\xae\xc2\x9a\xc3\xa4\xc2\xba\xc2\x8b\xc3\xa4\xc2\xbb\xc2\xb6\xc3\xa5\xc2\x8d\xc2\xb3\xc3\xa5\xc2\x8f\xc2\xaf\xc3\xa3\xc2\x80\xc2\x82',
+"author":b'Author:yutou',
+"maintainer":b'Maintainer:yutou',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.3.0(latest)","0.1.0"]
+}
+,
+{
+"name":allthingstalk-lorawan-sdk,
+"category":Communication,
+"description":b'LoRaWAN SDK for AllThingsTalk MakerCompatible with Microchip RN2483 and RN2903 devices.',
+"author":b'Author:AllThingsTalk',
+"maintainer":b'Maintainer:Vanja',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["3.1.6(latest)","3.1.5","3.1.4","3.1.3","3.1.2","3.1.0","3.0.0"]
+}
+,
+{
+"name":allthingstalk-lte-m-sdk,
+"category":Communication,
+"description":b'Connect your LTE-M enabled Arduino device to AllThingsTalk IoT Platform.Compatible with U-Blox SARA-R410M modules.',
+"author":b'Author:AllThingsTalk',
+"maintainer":b'Maintainer:Vanja',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.0.4(latest)","2.0.3","2.0.2","2.0.1","2.0.0","1.0.0"]
+}
+,
+{
+"name":allthingstalk-wifi-sdk,
+"category":Communication,
+"description":b'Connect and control your device with AllThingsTalkEasily connect to WiFi and AllThingsTalk. Send any type of data in any format, add dozens of actuations to control your device using your AllThingsTalk Maker. Supports ESP8266-based devices and Arduino MKR1010.',
+"author":b'Author:AllThingsTalk',
+"maintainer":b'Maintainer:Vanja',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.1.2(latest)","2.1.1","2.1.0","2.0.0"]
+}
+,
+{
+"name":allwize,
+"category":Communication,
+"description":b'Arduino-compatible library to interface RC1701HP-OSP/WIZE radio modules',
+"author":b'Author:AllWize.io',
+"maintainer":b'Maintainer:Xose P\xc3\x83\xc2\xa9rez',
+"compatibility":This library is compatible with theavr, samd, esp8266, esp32architectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino MKR FOX 1200","Arduino MKR GSM 1400","Arduino MKR NB 1500","Arduino MKR VIDOR 4000","Arduino MKR WAN 1300 (LoRa connectivity)","Arduino MKR WAN 1310","Arduino MKR WiFi 1010","Arduino MKR ZERO (I2S bus & SD for sound, music & digital audio data)","Arduino MKR1000 WIFI","Arduino Nano","Arduino Nano 33 IoT","Arduino Uno","Arduino Yún","Arduino Zero"]
+"relaeases":["1.1.6(latest)","1.1.5","1.1.4","1.1.3","1.1.2","1.1.1","1.1.0","1.0.3","1.0.2","1.0.1","1.0.0"]
+}
+,
+{
+"name":almavioslitmqtt,
+"category":Communication,
+"description":b'A Simple MQTT client for connection with cloud providersThis library allows you to send and receive MQTT messages from cloud services.',
+"author":b'Author:Almavios',
+"maintainer":b'Maintainer:Almavios',
+"compatibility":This library is compatible with theesp8266, esp32architectures.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.0.3.0(latest)0.2.00.1.10.1.0,
+"relaeases":["0.3.0(latest)","0.2.0","0.1.1","0.1.0"]
+}
+,
+{
+"name":altsoftserial,
+"category":Communication,
+"description":b'Software emulated serial using hardware timers for improved compatibilityImproved software emulated serial, using hardware timers for precise signal timing and improved compatibility with other interrupt-based libraries.',
+"author":b'Author:Paul Stoffregen',
+"maintainer":b'Maintainer:Paul Stoffregen',
+"compatibility":This library is compatible with theavrarchitecture so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino Nano","Arduino Uno","Arduino Yún"]
+"relaeases":["1.4.0(latest)","1.3.0","1.2.0"]
+}
+,
+{
+"name":ambient-esp32-esp8266-lib,
+"category":Communication,
+"description":b'Ambient library for Arduino ESP32 and ESP8266.Ambient is a cloud service to collect, store and visualize sensor data.',
+"author":b'Author:Ambient Data',
+"maintainer":b'Maintainer:Ambient Data',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.0.2(latest)","1.0.1","1.0.0","0.0.7","0.0.6","0.0.5","0.0.4","0.0.3","0.0.2"]
+}
+,
+{
+"name":ansi,
+"category":Communication,
+"description":b'Arduino library to send ANSI escape sequencesVT100, Tera Term',
+"author":b'Author:Rob Tillaart',
+"maintainer":b'Maintainer:Rob Tillaart',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.1.5(latest)","0.1.4","0.1.3","0.1.2","0.1.1","0.1.0"]
+}
+,
+{
+"name":ant-arduino,
+"category":Communication,
+"description":b'Library for communicating with various ANT radios from Dynastream Innovations.Support for Serial or Softdevice based radios. Can be configured to work in the ANT+ ecosystem.',
+"author":b'Author:Curtis Malainey',
+"maintainer":b'Maintainer:Curtis Malainey',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.0.1(latest)","2.0.0","1.1.0","1.0.2","1.0.1","1.0.0","0.3.0"]
+}
+,
+{
+"name":antares-esp8266-http,
+"category":Communication,
+"description":b'A library to simplify the process of fetching/deploying data to Antares IoT platform',
+"author":b'Author:Antares',
+"maintainer":b'Maintainer:Antares',
+"compatibility":This library is compatible with theesp8266architecture.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.1.3.3(latest)1.3.21.3.11.2.11.1.21.1.0,
+"relaeases":["1.3.3(latest)","1.3.2","1.3.1","1.2.1","1.1.2","1.1.0"]
+}
+,
+{
+"name":antares-esp8266-mqtt,
+"category":Communication,
+"description":b'A library to simplify the process of subscribing and publishing data to Antares IoT platform via MQTT on ESP8266',
+"author":b'Author:Antares',
+"maintainer":b'Maintainer:Antares',
+"compatibility":This library is compatible with theesp8266architecture.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.0.9.2(latest)0.9.10.9.0,
+"relaeases":["0.9.2(latest)","0.9.1","0.9.0"]
+}
+,
+{
+"name":antaresloraid,
+"category":Communication,
+"description":b'Lora.id Arduino Library for Dragino/RFM and standalone LoRaWAN modules.Device library for lora.id network.',
+"author":b'Author:Antares',
+"maintainer":b'Maintainer:Andri Rahmadhani',
+"compatibility":This library is compatible with theavr, esp8266architectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino Nano","Arduino Uno","Arduino Yún"]
+"relaeases":["1.1.0(latest)","1.0.0"]
+}
+,
+{
+"name":anto-esp8266-arduino,
+"category":Communication,
+"description":b'Enables ESP8266 to connect to Anto.io IoT platform.ESP8266-AntoIO provides common and easy method to publish/retrive data from/to Anto.io',
+"author":b'Author:Anto.io developers',
+"maintainer":b'Maintainer:Anto.io developers',
+"compatibility":This library is compatible with theesp8266architecture.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.0.7.3(latest)0.7.20.5.0,
+"relaeases":["0.7.3(latest)","0.7.2","0.5.0"]
+}
+,
+{
+"name":antplus-arduino,
+"category":Communication,
+"description":b'Library for easy ANT+ integrationImplements the ANT+ network on top the ANT driver for communication with ANT+ devices. Enables support for integration into various sports sensors/devices.',
+"author":b'Author:Curtis Malainey',
+"maintainer":b'Maintainer:Curtis Malainey',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.0(latest)","1.1.1","1.1.0","1.0.0","0.3.0","0.2.0","0.1.0"]
+}
+,
+{
+"name":app-fernando-k,
+"category":Communication,
+"description":b'Library that helps working with the Fernando K appThis library manages multiple client connections and inform about incoming messages through callback',
+"author":b'Author:FernandoK',
+"maintainer":b'Maintainer:FernandoK',
+"compatibility":This library is compatible with theesp8266, esp32architectures.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.1.0.0(latest),
+"relaeases":["1.0.0(latest)"]
+}
+,
+{
+"name":applemidi,
+"category":Communication,
+"description":b'AppleMIDI (aka rtpMIDI) MIDI I/Os for ArduinoAppleMIDI (aka rtpMIDI) is a protocol to transport MIDI messages within RTP (Real-time Protocol) packets over Ethernet and WiFi networks. This major rewrite is faster, more stable and uses less memory. Read the Wiki page when migrating',
+"author":b'Author:lathoub',
+"maintainer":b'Maintainer:lathoub',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["3.2.0(latest)","3.1.2","3.1.1","3.1.0","3.0.0","2.2.0","2.1.0","2.0.5","2.0.4","2.0.3","2.0.0-alpha.1","1.6.1","1.6.0","1.5.5","1.5.3","1.5.2","1.0.0"]
+}
+,
+{
+"name":approximate,
+"category":Communication,
+"description":b'The Approximate Library is a WiFi Arduino library for building proximate interactions between your Internet of Things and the ESP8266 or ESP32.The Approximate Library is a WiFi Arduino library for building proximate interactions between your Internet of Things and the ESP8266 or ESP32. Technically it makes it easy to use WiFi signal strength (RSSI) to estimate the physical distance to a device on your home network, then obtain its MAC address and optionally its IP address. The network activity of these devices can also be observed.',
+"author":b'Author:David Chatting',
+"maintainer":b'Maintainer:David Chatting',
+"compatibility":This library is compatible with theesp32, esp8266architectures.ReleasesTo use this library, open theLibrary Managerin            the            Arduino IDE and install it from there.1.4.0(latest)1.3.01.2.01.1.11.0.11.0.0,
+"relaeases":["1.4.0(latest)","1.3.0","1.2.0","1.1.1","1.0.1","1.0.0"]
+}
+,
+{
+"name":aprs-decoder-lib,
+"category":Communication,
+"description":b'Library to decode APRS messages.This library will provide a simple way to decode APRS messages.',
+"author":b'Author:Peter Buchegger',
+"maintainer":b'Maintainer:Peter Buchegger',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.0.6(latest)","0.0.5","0.0.4","0.0.3","0.0.1"]
+}
+,
+{
+"name":aprs-is-lib,
+"category":Communication,
+"description":b'APRS-IS library for ESP32This library will provide an simple interface to the APRS-Servers with the help of APRS-IS.',
+"author":b'Author:Peter Buchegger',
+"maintainer":b'Maintainer:Peter Buchegger',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.0.7(latest)","0.0.6","0.0.5","0.0.4","0.0.2","0.0.1"]
+}
+,
+{
+"name":aqualabosensor,
+"category":Communication,
+"description":b'Aqualabo Sensors.Aqualabo Sensors communication with Modbus slaves over RS232/485 (via RTU protocol). Requires an RS232/485 transceiver.',
+"author":b'Author:Andres Sabas, based in the work of Libelium',
+"maintainer":b'Maintainer:Electronic Cats',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["0.0.1(latest)"]
+}
+,
+{
+"name":arancino,
+"category":Communication,
+"description":b'Enables communication between microcontroller and Arancino Module running mainly in Arancino boards.It is designed to run on Arancino boards, but can runs in every microcontroller connected to unix-like systems running Arancino Module.',
+"author":b'Author:smartme.IO',
+"maintainer":b'Maintainer:smartme.IO',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.0.1(latest)","2.0.0","1.4.2","1.4.1","1.4.0","1.3.1","1.3.0","1.2.1","1.2.0","1.1.0","1.0.2","1.0.1","1.0.0","0.4.0","0.3.0","0.2.1","0.2.0","0.1.2","0.1.1","0.1.0"]
+}
+,
+{
+"name":ardosc,
+"category":Communication,
+"description":b'Open Sound Control(OSC) Library for Arduino.Updated for library manager',
+"author":b'Author:recotana http://recotana.com',
+"maintainer":b'Maintainer:Christopher Andrews',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["2.2.0(latest)"]
+}
+,
+{
+"name":ardtap,
+"category":Communication,
+"description":b'A library to manage an Arduino board from a mobile in a couple of minutes. No coding, only configuration.Needs TapNLink hardware (standard or Primer) and IoTize Studio (free configuration software).',
+"author":b'Author:IoTize',
+"maintainer":b'Maintainer:IoTize',
+"compatibility":This library is compatible with theavr, sam, stm32architectures so you          should be able to use it on the          following Arduino boards:,
+"boards":["Arduino Micro","Arduino Leonardo","Arduino Mega","Arduino Due","Arduino Nano","Arduino Uno","Arduino Yún"]
+"relaeases":["1.1.1(latest)"]
+}
+,
+{
+"name":arduino-async-duplex,
+"category":Communication,
+"description":b'Easily and asynchronously with a serial device requiring call-and-response style commands.Examples of devices that this is useful for are any modems using AT-commands like the SIM800, SIM7000, and ESP8266.',
+"author":b'Author:Adam Coddington',
+"maintainer":b'Maintainer:Adam Coddington',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.0(latest)"]
+}
+,
+{
+"name":arduino-async-modem,
+"category":Communication,
+"description":b'Asynchronously interact with your GSM or LTE modem.Currently this supports the SIM7000 GSM modem.',
+"author":b'Author:Adam Coddington',
+"maintainer":b'Maintainer:Adam Coddington',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.1.0(latest)"]
+}
+,
+{
+"name":arduino-managed-serial-device,
+"category":Communication,
+"description":b'Easily and asynchronously with a serial device requiring call-and-response style commands.Examples of devices that this is useful for are any modems using AT-commands like the SIM800, SIM7000, and ESP8266.',
+"author":b'Author:Adam Coddington',
+"maintainer":b'Maintainer:Adam Coddington',
+"compatibility":This library is compatible withallarchitectures so you should be able to use it on all the Arduino          boards.,
+"relaeases":["1.2.0(latest)"]
+}
+,
