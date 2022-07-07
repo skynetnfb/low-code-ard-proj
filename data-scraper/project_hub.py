@@ -85,7 +85,6 @@ def scrape_project_detail(url=""):
         for a in apps:
             print(a.get_text()+",")
         print("\n")
-        print("qui")
         
 
         with open('projects.txt','a') as data:
@@ -108,5 +107,5 @@ def scrape_project_detail(url=""):
 
 
 
-scrape_project_detail(url="https://create.arduino.cc/projecthub/LithiumION/mpu6050-gyroscope-with-arduino-64b931")
-#category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending")
+#scrape_project_detail(url="https://create.arduino.cc/projecthub/LithiumION/mpu6050-gyroscope-with-arduino-64b931")
+category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending")
