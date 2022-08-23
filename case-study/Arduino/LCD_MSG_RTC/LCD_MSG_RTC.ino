@@ -3,7 +3,7 @@
 #include <SimpleDHT.h>
 #include "RTClib.h"
 
-SimpleDHT11 dht11;
+SimpleDHT11 dht11; // Hum Temp Sensor
 const int rs=12, en=11, d4=5, d5=4, d6=3, d7=2;
 LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
 RTC_DS1307 rtc;

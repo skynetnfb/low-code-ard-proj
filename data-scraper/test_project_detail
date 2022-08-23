@@ -1,0 +1,7 @@
+{
+"project_link":"https://create.arduino.cc/projecthub/mircemk/diy-sensitive-arduino-ib-metal-detector-d5e029?ref=platform&ref_id=424_recent___&offset=0",
+"project_title":"b'DIY Sensitive Arduino IB METAL DETECTOR \xc2\xa9\xc2\xa0GPL3+'",
+"project_description":"b'The construction is really simple thanks to the microcontroller, but also the module for weak signal amplification with LM358 IC.'",
+"components":["Arduino Nano R3","module for weak signal amplification with LM358","IRF730 mosfet transistor","Rotary Potentiometer 10 kohm","Buzzer","LED (generic)","Rechargeable Battery Lithium Ion","General Purpose Transistor NPN","Resistors and capacitors (second version)"],
+"tools":["Soldering iron (generic)","Solder Wire Lead Free"]
+}
