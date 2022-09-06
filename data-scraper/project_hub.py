@@ -5,7 +5,17 @@ from matplotlib.pyplot import title
 import requests
 import bs4
 
-def project_links_scraper(url = "",pages=31,file_name=''):
+def project_links_scraper_cycle (pages=276,file_name='all_projects_test.txt'):
+        with open(file_name,'a') as data:
+                data.write('['+'\n')
+        for i in range(1,pages+1):
+            url="https://create.arduino.cc/projecthub?&page={}&sort=recent".format(str(i))
+            project_links_scraper(url = url,file_name=file_name)
+            print(url)
+            with open(file_name,'a') as data:
+                data.write(']'+'\n')
+
+def project_links_scraper(url = "",file_name=''):
     res =  requests.get(url)
     
     try:
@@ -14,37 +24,41 @@ def project_links_scraper(url = "",pages=31,file_name=''):
         elem_html = "div"
         sel_elem = html_page.select(elem_html)
         contents = sel_elem[0]
-        with open(file_name,'a') as data:
-            data.write('['+'\n')
-        for i in range(1,pages+1):
-            url="https://create.arduino.cc/projecthub?category=sensors-environment&page={}&sort=trending".format(str(i))
-            #print(url)    
+        #with open(file_name,'a') as data:
+        #    data.write('['+'\n')
+        #for i in range(1,pages+1):
+        #    url="https://create.arduino.cc/projecthub?category=sensors-environment&page={}&sort=trending".format(str(i))
+        #    print(url)    
             #print(contents)
 
                 #print(contents)
 
-            project_links = contents.find_all("a", {"class": "project-link-with-ref"}, href=True)
-            with open(file_name,'a') as data:
-                if project_links:
-                    print(len(project_links))
-                    
-                    for link in project_links:
-                        if(link.get_text()!=""):
-                            data.write('{'+'\n')
-                            data.write('"project_name":'+'"'+str(link.get_text(strip=True).replace("\n",""))+'",'+'\n')
-                            data.write('"project_link":'+'"'+"https://create.arduino.cc"+str(link['href'])+'"'+'\n')
-                            if(i<=pages and link != project_links[-1]):
-                                data.write('},'+'\n')
-                            else:
-                                data.write('}'+'\n')
-                        #scrape_project_detail(url="https://create.arduino.cc"+str(link['href']))
-                else:
-                    print(project_links)
+        project_links = contents.find_all("a", {"class": "project-link-with-ref"}, href=True)
+        with open(file_name,'a') as data:
+            if project_links:
+                #print(len(project_links))
+                
+                for link in project_links:
+                    if(link.get_text()!=""):
+                        
+                        data.write('{'+'\n')
+                        data.write('"project_name":'+'"'+str(link.get_text().encode("utf-8"))+'",'+'\n')
+                        #print('name ok')
+                        data.write('"project_link":'+'"'+"https://create.arduino.cc"+str(link['href'])+'"'+'\n')
+                        #print('link ok')
+                        if(link != project_links[-1]):
+                            data.write('},'+'\n')
+                        else:
+                            data.write('}'+'\n')
+                    #scrape_project_detail(url="https://create.arduino.cc"+str(link['href']))
+            else:
+                print(project_links)
                 #data.write('"category": "null",'+'\n')
-        with open('file_name','a') as data:
-            data.write(']'+'\n')        
+        #with open('file_name','a') as data:
+        #    data.write(']'+'\n')        
     except Exception as exc:
         print('-------------------Exception raised')
+        print (link)
 
 
 
@@ -134,5 +148,7 @@ def scrape_project_detail(url="",file_name=''):
 
 #scrape_project_detail(url="https://create.arduino.cc/projecthub/LithiumION/mpu6050-gyroscope-with-arduino-64b931")
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
-#projects_links_scraper(url = "https://create.arduino.cc/projecthub?page=1&sort=recent",pages=276,file_name="all_projects.txt")
-scrape_project_detail(url="https://create.arduino.cc/projecthub/mircemk/diy-sensitive-arduino-ib-metal-detector-d5e029?ref=platform&ref_id=424_recent___&offset=0",file_name="test_project_detail")
+#project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
+#project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
+project_links_scraper_cycle (pages=276,file_name='all_projects.txt')
+#scrape_project_detail(url="https://create.arduino.cc/projecthub/mircemk/diy-sensitive-arduino-ib-metal-detector-d5e029?ref=platform&ref_id=424_recent___&offset=0",file_name="test_project_detail")
