@@ -4,18 +4,21 @@ from msilib.schema import Component
 from matplotlib.pyplot import title
 import requests
 import bs4
+import csv
+import time
 
-def project_links_scraper_cycle (pages=276,file_name='all_projects_test.txt'):
+
+def project_links_scraper_cycle (pages=276,file_name='all_projects_test.txt',project_detail_file='all_project_links_final.txt'):
         with open(file_name,'a') as data:
                 data.write('['+'\n')
         for i in range(1,pages+1):
             url="https://create.arduino.cc/projecthub?&page={}&sort=recent".format(str(i))
-            project_links_scraper(url = url,file_name=file_name)
+            project_links_scraper(url = url,file_name=file_name,project_detail_file = project_detail_file)
             print(url)
             with open(file_name,'a') as data:
                 data.write(']'+'\n')
 
-def project_links_scraper(url = "",file_name=''):
+def project_links_scraper(url = "",file_name='',project_detail_file='all_project_detail_final_test.txt'):
     res =  requests.get(url)
     
     try:
@@ -24,46 +27,40 @@ def project_links_scraper(url = "",file_name=''):
         elem_html = "div"
         sel_elem = html_page.select(elem_html)
         contents = sel_elem[0]
-        #with open(file_name,'a') as data:
-        #    data.write('['+'\n')
-        #for i in range(1,pages+1):
-        #    url="https://create.arduino.cc/projecthub?category=sensors-environment&page={}&sort=trending".format(str(i))
-        #    print(url)    
-            #print(contents)
-
-                #print(contents)
 
         project_links = contents.find_all("a", {"class": "project-link-with-ref"}, href=True)
         with open(file_name,'a') as data:
-            if project_links:
-                #print(len(project_links))
-                
+            if project_links:                
                 for link in project_links:
-                    if(link.get_text()!=""):
-                        
+                    if(link.get_text()!=""):                      
                         data.write('{'+'\n')
                         data.write('"project_name":'+'"'+str(link.get_text().encode("utf-8"))+'",'+'\n')
-                        #print('name ok')
                         data.write('"project_link":'+'"'+"https://create.arduino.cc"+str(link['href'])+'"'+'\n')
-                        #print('link ok')
+                        scrape_project_detail_new(url="https://create.arduino.cc"+str(link['href']),file_name=project_detail_file)
                         if(link != project_links[-1]):
                             data.write('},'+'\n')
                         else:
                             data.write('}'+'\n')
-                    #scrape_project_detail(url="https://create.arduino.cc"+str(link['href']))
             else:
                 print(project_links)
-                #data.write('"category": "null",'+'\n')
-        #with open('file_name','a') as data:
-        #    data.write(']'+'\n')        
+       
     except Exception as exc:
-        print('-------------------Exception raised')
-        print (link)
+        log_str = ''
+        msg=''
+        print('-------------------Exception raised LINK SCRAPER ', exc.__class__)
+        if hasattr(exc, 'message'):
+                msg = exc.message
+        else:
+            msg = exc
+        with open('err_log_link.txt','a') as data_loger:
+            log_str = str(time.time())+' : '+ str(msg) + "URL: " + url
+            data_loger.write(log_str)
+
 
 
 
 def scrape_project_detail(url="",file_name=''):
-    print ("SCRAPE PROJECT: "+str(url))
+    #print ("SCRAPE PROJECT: "+str(url))
     res =  requests.get(url)
     
     try:
@@ -73,41 +70,44 @@ def scrape_project_detail(url="",file_name=''):
         sel_elem = html_page.select(elem_html)
         contents = sel_elem[0]
         project_title = contents.find_all("h1", {"class": "project-title"})
-        print('"title": '+str(project_title[0].get_text()))
+        #print('"title": '+str(project_title[0].get_text()))
         project_description = contents.find_all("p", {"class": "project-one-liner"})
 
-        print('"decription": '+str(project_description[0].get_text()))
-        print("\n")
+        #print('"decription": '+str(project_description[0].get_text()))
+        #print("\n")
 
         section_components = contents.find_all("section", {"id": "components"})
-        parser_components = bs4.BeautifulSoup(str(section_components[0].get_text), 'html.parser')
-        components = parser_components.find_all("tr", {"class": "part-name"})
-        for c in components:
-            print(c.get_text()+",")
-        print("\n")
-
+        if(section_components):
+            parser_components = bs4.BeautifulSoup(str(section_components[0].get_text), 'html.parser')
+            components = parser_components.find_all("tr", {"class": "part-name"})
+        else:components=[]
+        #for c in components:
+        #    print(c.get_text()+",")
+        #print("\n")
         section_tools = contents.find_all("section", {"id": "tools"})
-        parser_tools = bs4.BeautifulSoup(str(section_tools[0].get_text), 'html.parser')
-        tools = parser_tools.find_all("tr", {"class": "part-name"})
-        for t in tools:
-            print(t.get_text()+",")
-        print("\n")
-
-
-
+        if(section_tools):
+            parser_tools = bs4.BeautifulSoup(str(section_tools[0].get_text), 'html.parser')
+            tools = parser_tools.find_all("tr", {"class": "part-name"})
+        else:tools=[]    
+        #for t in tools:
+        #    print(t.get_text()+",")
+        #print("\n")
         section_app = contents.find_all("section", {"id": "apps"})
-        parser_app = bs4.BeautifulSoup(str(section_app[0].get_text), 'html.parser')
-        apps = parser_app.find_all("tr", {"class": "part-name"})
-        for a in apps:
-            print(a.get_text()+",")
-        print("\n")
+        if(section_app):
+            parser_app = bs4.BeautifulSoup(str(section_app[0].get_text), 'html.parser')
+            apps = parser_app.find_all("tr", {"class": "part-name"})
+        else:apps=[]
+        #for a in apps:
+        #    print(a.get_text()+",")
+        #print("\n")
         
 
         with open(file_name,'a') as data:
             data.write('{'+'\n')
             data.write('"project_link"'+":"+'"'+url+'"'+","+'\n')
-            data.write('"project_title"'+":"+'"'+str(project_title[0].get_text().encode("utf-8"))+'"'+","+'\n')
-            data.write('"project_description"'+":"+'"'+str(project_description[0].get_text().encode("utf-8"))+'"'+","+'\n')
+            data.write('"project_title"'+":"+'"'+clean_string(str(project_title[0].get_text().encode("utf-8")))+'"'+","+'\n')
+            data.write('"project_description"'+":"+'"'+clean_string(str(project_description[0].get_text().encode("utf-8")))+'"'+","+'\n')
+            
             #data.write(print('"title": '+str(project_title[0].get_text().encode("utf-8")))+","+'\n')
             #data.write(print('"project description": '+str(project_title[0].get_text().encode("utf-8")))+","+'\n')
             if components:
@@ -119,36 +119,171 @@ def scrape_project_detail(url="",file_name=''):
                     if(c.get_text()!=""):
                         if(c!=components[len(components)-1]):
                             data.write('"'+c.get_text().replace(",", "")+'"'+",")
-                        else:data.write('"'+c.get_text().replace(",", "")+'"')
+                            write_column_name(file_name="components.txt", component_name=c.get_text().replace(",", "")) 
+                        else:
+                            data.write('"'+c.get_text().replace(",", "")+'"')
+                            write_column_name(file_name="components.txt", component_name=c.get_text().replace(",", "")) 
                             
                 data.write('],'+'\n')       
             else:
                 data.write('"tools":'+'[],')
-            if components:
+            if tools:
+                
                 data.write('"tools":'+'')
                 data.write('[')
                 #print(len(components))
                 for t in tools:
+
                     #a= contents.find_all("a", {"class": "project-one-liner"}, href=True)
                     if(t.get_text()!=""):
                         if(t!=tools[len(tools)-1]):
                             data.write('"'+t.get_text().replace(",", "")+'"'+",")
-                        else:data.write('"'+t.get_text().replace(",", "")+'"')           
+                            write_column_name(file_name="tools.txt", component_name=t.get_text().replace(",", ""))
+                        else:
+                            data.write('"'+t.get_text().replace(",", "")+'"')
+                            write_column_name(file_name="tools.txt", component_name=t.get_text().replace(",", ""))          
                 data.write(']'+'\n')           
             else:
                 data.write('"components":'+'[]')               
             #data.write('"category": "null",'+'\n')
-            data.write('}'+'\n')
+            data.write('}')
+            data.write(','+'\n')
     except Exception as exc:
-        print('-------------------Exception raised')
+        msg=''
+        print('-------------------Exception raised', exc.__class__)
+        if hasattr(exc, 'message'):
+            msg = exc.message
+        else:
+            msg = exc
+        with open('err_log.txt','a') as data_log:
+            log_str = str(time.time())+' : '+ str(msg) + "URL: " + url
+            data_log.write(log_str)
 
 
+def scrape_project_detail_new(url="",file_name=''):
+    #print ("SCRAPE PROJECT: "+str(url))
+    res =  requests.get(url)
+    
+    try:
+        prj_info = ''
+        res.raise_for_status()
+        html_page = bs4.BeautifulSoup(res.text, 'html.parser')
+        elem_html = "div"
+        sel_elem = html_page.select(elem_html)
+        contents = sel_elem[0]
+        project_title = contents.find_all("h1", {"class": "project-title"})
+        #print('"title": '+str(project_title[0].get_text()))
+        project_description = contents.find_all("p", {"class": "project-one-liner"})
 
+        #print('"decription": '+str(project_description[0].get_text()))
+        #print("\n")
+
+        section_components = contents.find_all("section", {"id": "components"})
+        if(section_components):
+            parser_components = bs4.BeautifulSoup(str(section_components[0].get_text), 'html.parser')
+            components = parser_components.find_all("tr", {"class": "part-name"})
+        else:components=[]
+        #for c in components:
+        #    print(c.get_text()+",")
+        #print("\n")
+        section_tools = contents.find_all("section", {"id": "tools"})
+        if(section_tools):
+            parser_tools = bs4.BeautifulSoup(str(section_tools[0].get_text), 'html.parser')
+            tools = parser_tools.find_all("tr", {"class": "part-name"})
+        else:tools=[]    
+        #for t in tools:
+        #    print(t.get_text()+",")
+        #print("\n")
+        section_app = contents.find_all("section", {"id": "apps"})
+        if(section_app):
+            parser_app = bs4.BeautifulSoup(str(section_app[0].get_text), 'html.parser')
+            apps = parser_app.find_all("tr", {"class": "part-name"})
+        else:apps=[]
+        #for a in apps:
+        #    print(a.get_text()+",")
+        #print("\n")
+        
+        with open(file_name,'a') as data:
+            prj_info = '{'+'\n' + '"project_link"'+":"+'"'+url+'"'+","+'\n' +'"project_title"'+":"+'"'+clean_string(str(project_title[0].get_text().encode("utf-8")))+'"'+","+'\n'+'"project_description"'+":"+'"'+clean_string(str(project_description[0].get_text().encode("utf-8")))+'"'+","+'\n'
+            if components:
+                prj_info = prj_info + '"components":' + '' + '['
+                for c in components:
+                    if(c.get_text()!=""):
+                        if(c!=components[len(components)-1]):
+                            prj_info = prj_info + '"'+c.get_text().replace(",", "")+'"'+","
+                            write_column_name(file_name="components.txt", component_name=c.get_text().replace(",", "")) 
+                        else:
+                            prj_info = prj_info + '"'+c.get_text().replace(",", "")+'"'
+                            write_column_name(file_name="components.txt", component_name=c.get_text().replace(",", "")) 
+                            
+                prj_info = prj_info + '],'+'\n'
+            else:
+                prj_info = prj_info + '"tools":'+'[],'
+            if tools:
+                prj_info = prj_info + '"tools":'+'' + '['
+                for t in tools:
+
+                    #a= contents.find_all("a", {"class": "project-one-liner"}, href=True)
+                    if(t.get_text()!=""):
+                        if(t!=tools[len(tools)-1]):
+
+                            prj_info = prj_info + '"'+t.get_text().replace(",", "")+'"'+","
+                            write_column_name(file_name="tools.txt", component_name=t.get_text().replace(",", ""))
+                        else:
+                            prj_info = prj_info + '"'+t.get_text().replace(",", "")+'"'
+                            write_column_name(file_name="tools.txt", component_name=t.get_text().replace(",", ""))          
+                prj_info = prj_info + ']'+'\n'
+            else:
+
+                prj_info = prj_info + '"components":'+'[]'
+            #data.write('"category": "null",'+'\n')
+            prj_info = prj_info + '}'','+'\n'
+            #print(str(prj_info))
+            data.write(prj_info)
+    except Exception as exc:
+        msg=str(time.time())+ url +'\n'
+        print('-------------------Exception raised PRJ DETAIL', exc.__class__)
+        if hasattr(exc, 'message'):
+            msg = exc.message
+        else:
+            msg = exc
+        with open('err_log.txt','a') as data_log:
+            log_str = str(time.time())+' : '+ str(msg) + "URL: " + url +'\n'
+            data_log.write(log_str)
+                
+
+def write_column_name(file_name="components.txt", component_name=""):
+    with open(file_name,'a') as data:
+        data.write(component_name+',')
+
+def read_columns(file_name = "test.txt"):
+    with open (file_name,'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=",")
+        for row in csv_reader:
+            print (len(row))
+            row_set = set(row)
+            print(len(row_set))
+            for c in row_set:
+                print(c)
+
+def clean_string(temp_string):
+    if(temp_string[1] == '"'):
+                temp_string = temp_string.split('b"', 1)[1]
+    else:
+                temp_string = temp_string.split("b'", 1)[1]
+                #print(parsed_name)
+                #data.write(parsed_name+','+'\n')
+    temp_string = temp_string.split("'", 1)[0]
+    temp_string = temp_string.replace('"',"''")
+    return temp_string
 
 
 #scrape_project_detail(url="https://create.arduino.cc/projecthub/LithiumION/mpu6050-gyroscope-with-arduino-64b931")
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-project_links_scraper_cycle (pages=276,file_name='all_projects.txt')
-#scrape_project_detail(url="https://create.arduino.cc/projecthub/mircemk/diy-sensitive-arduino-ib-metal-detector-d5e029?ref=platform&ref_id=424_recent___&offset=0",file_name="test_project_detail")
+project_links_scraper_cycle (pages=276,file_name='all_projects_2.txt',project_detail_file='all_project_links_final.txt')
+#scrape_project_detail(url="https://create.arduino.cc/projecthub/mjrobot/where-are-my-tinyml-devices-b7b232",file_name="test_project_detail.txt")
+#read_columns("components.txt")
+#read_columns("tools.txt")
+#clean_string ('b"ciao"')
