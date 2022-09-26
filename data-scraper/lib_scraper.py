@@ -4,7 +4,7 @@ import requests
 import bs4
 
 
-def detail_scraper(address,name,element):
+def detail_scraper(address,name,element,file_name):
     url = address+name
     res =  requests.get(url)
     try:
@@ -15,7 +15,7 @@ def detail_scraper(address,name,element):
         sel_elem = html_page.select(elem_html)
         contents = sel_elem[0]
 
-        with open('library_test.txt','a') as data:
+        with open(file_name,'a') as data:
             data.write('{'+'\n')
             data.write('"name":'+name+','+'\n')
             #print(contents)
@@ -83,7 +83,7 @@ def detail_scraper(address,name,element):
 
 
 
-def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/category/communication/'):
+def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/category/communication/' file_name="libraries_test.txt"):
     res =  requests.get(url)
     try:
         res.raise_for_status()
@@ -98,9 +98,8 @@ def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/catego
     text_elem = sel_elem[0].getText()
     container = html_page.find_all("li")
     print(len(container))
-    with open('library_test.txt','a') as data1:
-        data1.write('['+'\n')
-    with open('data.txt','w') as data:
+
+    with open('data.txt','a') as data:
 
         for li in html_page.find_all("li"):
             #print(li.get_text(strip=True).encode("utf-8"))
@@ -127,8 +126,20 @@ def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/catego
                 with open('library_test.txt','a') as data1:
                     detail_scraper(address='https://www.arduino.cc/reference/en/libraries/',name=parsed_name.replace(' ','-').lower(),element='div.single-page')
                     data1.write(','+'\n')
-    with open('library_test.txt','a') as data1:
-                data1.write(']'+'\n')
     print('file data updated')
 
-category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/communication/')
+def libraries_scraper(file_name='libraries_details.txt'):
+    with open(file_name,'a') as data:
+        data.write('['+'\n')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/communication/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/data-processing/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/data-storage/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/device-control/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/display/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/other/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/sensors/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/signal-input/output/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/timing/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/uncategorized/')
+    with open(file_name,'a') as data:
+        data.write(']'+'\n')
