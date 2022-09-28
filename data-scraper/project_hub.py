@@ -7,6 +7,8 @@ import bs4
 import csv
 import time
 from utils import *
+import code_snippet_scraper
+import uuid
 
 
 def project_links_scraper_cycle (pages=276,file_name='links.txt',project_detail_file='all_project_links_final.txt'):
@@ -102,12 +104,43 @@ def scrape_project_detail_new(url="",file_name=''):
             parser_app = bs4.BeautifulSoup(str(section_app[0].get_text), 'html.parser')
             apps = parser_app.find_all("tr", {"class": "part-name"})
         else:apps=[]
+
+        
+        # I dati minati di views respect e comments non corrispondono a quelli ispezionati!!
+        # non credo sia risolvibile
+        
+        #project_views = contents.find_all("li", {"class": "impression-stats"})
+        #if(project_views):
+        #    print(project_views)
+        #    parser_views = bs4.BeautifulSoup(str(project_views[0].get_text), 'html.parser')
+        #    views = parser_views.find_all("span", {"class": "stat-figure"})
+        #    print ("Views"+str(views))
+        #else:views="0"
+
+        #project_comments = contents.find_all("li", {"class": "comment-stats"})
+        #if(project_comments):
+        #    parser_comments = bs4.BeautifulSoup(str(project_comments[0].get_text()), 'html.parser')
+        #    comments = parser_comments.find_all("span", {"class": "stat-figure"})
+        #    print ("Comments"+str(comments.get_text()))
+        #else:comments="0"
+
+        #project_respect = contents.find_all("li", {"class": "respect-stats"})
+        #if(project_respect):
+        #    parser_respect = bs4.BeautifulSoup(str(project_respect[0].get_text()), 'html.parser')
+        #    print(parser_respect)
+        #    respects = parser_respect.find_all("span", {"class": "stat-figure"})
+        #    print ("Respect"+str(respects[0].get_text))
+        #else:respects="0"
+
         #for a in apps:
         #    print(a.get_text()+",")
         #print("\n")
+        project_id=str(uuid.uuid4())
+        code_snippet_scraper.scrape_code_snippet(url=url,project_id=project_id)
         
         with open(file_name,'a') as data:
             prj_info = '{'+'\n' + '"project_link"'+":"+'"'+url+'"'+","+'\n' +'"project_title"'+":"+'"'+clean_string(str(project_title[0].get_text().encode("utf-8")))+'"'+","+'\n'+'"project_description"'+":"+'"'+clean_string(str(project_description[0].get_text().encode("utf-8")))+'"'+","+'\n'
+            prj_info = prj_info+ '"project_id"'+":"+'"'+project_id+'"'+","+'\n'
             if components:
                 prj_info = prj_info + '"components":' + '' + '['
                 for c in components:
@@ -191,8 +224,8 @@ def clean_string(temp_string):
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-project_links_scraper_cycle (pages=276,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final.txt')
-#scrape_project_detail(url="https://create.arduino.cc/projecthub/mjrobot/where-are-my-tinyml-devices-b7b232",file_name="test_project_detail.txt")
+#project_links_scraper_cycle (pages=276,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final.txt')
+scrape_project_detail_new(url="https://create.arduino.cc/projecthub/ericBcreator/stereo-neopixel-ring-vu-meter-b28e78?ref=platform&ref_id=424_trending___&offset=11",file_name="test_project_detail.txt")
 #read_columns("components.txt")
 #read_columns("tools.txt")
 #clean_string ("'b")

@@ -29,4 +29,4 @@ def read_columns(file_name = "test.txt"):
             #   print(c)
 
 #read_columns('components.txt')
-read_columns('tools.txt')
+#read_columns('tools.txt')

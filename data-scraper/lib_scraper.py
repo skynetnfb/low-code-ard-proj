@@ -83,7 +83,7 @@ def detail_scraper(address,name,element,file_name):
 
 
 
-def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/category/communication/' file_name="libraries_test.txt"):
+def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/category/communication/', file_name="libraries_test.txt"):
     res =  requests.get(url)
     try:
         res.raise_for_status()
@@ -123,23 +123,23 @@ def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/catego
             and str(parsed_name) != 'IoT Cloud API'
             and str(parsed_name) != 'Glossary'):
                 data.write(parsed_name+','+'\n')                
-                with open('library_test.txt','a') as data1:
-                    detail_scraper(address='https://www.arduino.cc/reference/en/libraries/',name=parsed_name.replace(' ','-').lower(),element='div.single-page')
+                with open(file_name,'a') as data1:
+                    detail_scraper(address='https://www.arduino.cc/reference/en/libraries/',name=parsed_name.replace(' ','-').lower(),element='div.single-page',file_name='library_test.txt')
                     data1.write(','+'\n')
     print('file data updated')
 
 def libraries_scraper(file_name='libraries_details.txt'):
     with open(file_name,'a') as data:
         data.write('['+'\n')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/communication/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/data-processing/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/data-storage/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/device-control/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/display/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/other/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/sensors/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/signal-input/output/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/timing/')
-        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/uncategorized/')
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/communication/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/data-processing/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/data-storage/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/device-control/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/display/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/other/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/sensors/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/signal-input/output/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/timing/', file_name=file_name)
+        category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/uncategorized/', file_name=file_name)
     with open(file_name,'a') as data:
         data.write(']'+'\n')
