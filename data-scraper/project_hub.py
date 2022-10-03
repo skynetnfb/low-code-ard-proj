@@ -188,44 +188,17 @@ def scrape_project_detail_new(url="",file_name=''):
             data_log.write(log_str)
                 
 
-def write_column_name(file_name="components.txt", component_name=""):
-    with open(file_name,'a') as data:
-        data.write(component_name+',')
 
-def read_columns(file_name = "test.txt"):
-    with open (file_name,'r') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=",")
-        for row in csv_reader:
-            print (len(row))
-            row_set = set(row)
-            print(len(row_set))
-            for c in row_set:
-                print(c)
 
-def clean_string(temp_string):
-    if(temp_string == ""):
-        return " "
-    if(temp_string[1] == '"'):
-            
-            temp_string = temp_string.split('b"', 1)[1]
-    elif(temp_string[1] == "'"):
-            
-            temp_string = temp_string.split("b'", 1)[1]
-                #print(parsed_name)
-                #data.write(parsed_name+','+'\n')
-    temp_string = temp_string.split("'", 1)[0]
-    temp_string = temp_string.replace('"',"''").replace(",","")
-    if(temp_string == ""):
-        return " "
-    return temp_string
+
 
 
 #scrape_project_detail(url="https://create.arduino.cc/projecthub/LithiumION/mpu6050-gyroscope-with-arduino-64b931")
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-#project_links_scraper_cycle (pages=276,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final.txt')
-scrape_project_detail_new(url="https://create.arduino.cc/projecthub/ericBcreator/stereo-neopixel-ring-vu-meter-b28e78?ref=platform&ref_id=424_trending___&offset=11",file_name="test_project_detail.txt")
+project_links_scraper_cycle (pages=4,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final_test.txt')
+#scrape_project_detail_new(url="https://create.arduino.cc/projecthub/ericBcreator/stereo-neopixel-ring-vu-meter-b28e78?ref=platform&ref_id=424_trending___&offset=11",file_name="test_project_detail.txt")
 #read_columns("components.txt")
 #read_columns("tools.txt")
 #clean_string ("'b")

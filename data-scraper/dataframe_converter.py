@@ -14,7 +14,7 @@ def json_reader(file_name='json_test.txt'):
 # Opening JSON file
     with open(file_name) as f:
         data = f.read().replace("\\","/").replace('""','","')
-    with open(file_name+"converted","w") as d:
+    with open(file_name,"w") as d:
         d.write(data)
     print("Data type before reconstruction : ", type(data))
     # reconstructing the data as a dictionary
@@ -27,4 +27,4 @@ def json_reader(file_name='json_test.txt'):
 
 
 
-json_reader('json_test.txt')
+json_reader('all_project_detail_final_converted_test.txt')
