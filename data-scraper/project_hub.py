@@ -197,7 +197,7 @@ def scrape_project_detail_new(url="",file_name=''):
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-project_links_scraper_cycle (pages=4,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final_test.txt')
+project_links_scraper_cycle (pages=10,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final_test.txt')
 #scrape_project_detail_new(url="https://create.arduino.cc/projecthub/ericBcreator/stereo-neopixel-ring-vu-meter-b28e78?ref=platform&ref_id=424_trending___&offset=11",file_name="test_project_detail.txt")
 #read_columns("components.txt")
 #read_columns("tools.txt")
