@@ -109,29 +109,35 @@ def scrape_project_detail_new(url="",file_name=''):
         # I dati minati di views respect e comments non corrispondono a quelli ispezionati!!
         # non credo sia risolvibile
         
-        #project_views = contents.find_all("li", {"class": "impression-stats"})
-        #if(project_views):
-        #    print(project_views)
-        #    parser_views = bs4.BeautifulSoup(str(project_views[0].get_text), 'html.parser')
-        #    views = parser_views.find_all("span", {"class": "stat-figure"})
-        #    print ("Views"+str(views))
-        #else:views="0"
+        project_views = contents.find_all("li", {"class": "impression-stats"})
+        if(project_views):
+            #print(project_views)
+            parser_views = bs4.BeautifulSoup(str(project_views[0].get_text), 'html.parser')
+            views = parser_views.find_all("span", {"class": "stat-figure"})
+            print ("Views",str(views[0].get_text()).replace(",",''))
+        else:views="0"
 
-        #project_comments = contents.find_all("li", {"class": "comment-stats"})
-        #if(project_comments):
-        #    parser_comments = bs4.BeautifulSoup(str(project_comments[0].get_text()), 'html.parser')
-        #    comments = parser_comments.find_all("span", {"class": "stat-figure"})
-        #    print ("Comments"+str(comments.get_text()))
-        #else:comments="0"
+        project_comments = contents.find_all("li", {"class": "comment-stats"})
+        if(project_comments):
+            parser_comments = bs4.BeautifulSoup(str(project_comments[0].get_text), 'html.parser')
+            comments = parser_comments.find_all("span", {"class": "stat-figure"})
+            print ("Comments"+str(comments[0].get_text()))
+        else:comments="0"
 
-        #project_respect = contents.find_all("li", {"class": "respect-stats"})
-        #if(project_respect):
-        #    parser_respect = bs4.BeautifulSoup(str(project_respect[0].get_text()), 'html.parser')
-        #    print(parser_respect)
-        #    respects = parser_respect.find_all("span", {"class": "stat-figure"})
-        #    print ("Respect"+str(respects[0].get_text))
-        #else:respects="0"
+        project_respect = contents.find_all("li", {"class": "respect-stats"})
+        if(project_respect):
+            parser_respect = bs4.BeautifulSoup(str(project_respect[0].get_text), 'html.parser')
+            respects = parser_respect.find_all("span", {"class": "stat-figure"})
+            print ("Respect"+str(respects[0].get_text()))
+        else:respects="0"
 
+        project_tags = contents.find_all("div", {"class": "project-banner-inner"})
+        if(project_tags):
+            parser_tags = bs4.BeautifulSoup(str(project_tags[0].get_text), 'html.parser')
+            tags = parser_tags.find_all("a", {"class": "tag"})
+            #print(parser_tags)
+        else:tags=[]
+        #print (tags)
         #for a in apps:
         #    print(a.get_text()+",")
         #print("\n")
@@ -141,6 +147,9 @@ def scrape_project_detail_new(url="",file_name=''):
         with open(file_name,'a') as data:
             prj_info = '{'+'\n' + '"project_link"'+":"+'"'+url+'"'+","+'\n' +'"project_title"'+":"+'"'+clean_string(str(project_title[0].get_text().encode("utf-8")))+'"'+","+'\n'+'"project_description"'+":"+'"'+clean_string(str(project_description[0].get_text().encode("utf-8")))+'"'+","+'\n'
             prj_info = prj_info+ '"project_id"'+":"+'"'+project_id+'"'+","+'\n'
+            prj_info = prj_info+ '"views"'+":"+'"'+str(views[0].get_text()).replace(",", "")+'"'+","+'\n'
+            prj_info = prj_info+ '"comment"'+":"+'"'+str(comments[0].get_text()).replace(",", "")+'"'+","+'\n'
+            prj_info = prj_info+ '"respects"'+":"+'"'+str(respects[0].get_text()).replace(",", "")+'"'+","+'\n'
             if components:
                 prj_info = prj_info + '"components":' + '' + '['
                 for c in components:
@@ -154,7 +163,7 @@ def scrape_project_detail_new(url="",file_name=''):
                             
                 prj_info = prj_info + '],'+'\n'
             else:
-                prj_info = prj_info + '"tools":'+'[],'
+                prj_info = prj_info + '"components":'+'[],'
             if tools:
                 prj_info = prj_info + '"tools":'+'' + '['
                 for t in tools:
@@ -168,10 +177,28 @@ def scrape_project_detail_new(url="",file_name=''):
                         else:
                             prj_info = prj_info + '"'+clean_string(t.get_text().replace(",", ""))+'"'
                             write_column_name(file_name="tools.txt", component_name=clean_string(t.get_text().replace(",", "")))         
+                prj_info = prj_info + ']'+',\n'
+            else:
+
+                prj_info = prj_info + '"tools":'+'[],\n'
+
+            if tags:
+                prj_info = prj_info + '"tags":'+'' + '['
+                for t in tags:
+
+                    #a= contents.find_all("a", {"class": "project-one-liner"}, href=True)
+                    if(t.get_text()!=""):
+                        if(t!=tags[len(tags)-1]):
+
+                            prj_info = prj_info + '"'+clean_string(t.get_text().replace(",", ""))+'"'+","
+                            write_column_name(file_name="tags.txt", component_name=clean_string(t.get_text().replace(",", "")))
+                        else:
+                            prj_info = prj_info + '"'+clean_string(t.get_text().replace(",", ""))+'"'
+                            write_column_name(file_name="tags.txt", component_name=clean_string(t.get_text().replace(",", "")))         
                 prj_info = prj_info + ']'+'\n'
             else:
 
-                prj_info = prj_info + '"tools":'+'[]'
+                prj_info = prj_info + '"tags":'+'[]'   
             #data.write('"category": "null",'+'\n')
             prj_info = prj_info + '}'','+'\n'
             #print(str(prj_info))
@@ -197,8 +224,8 @@ def scrape_project_detail_new(url="",file_name=''):
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-project_links_scraper_cycle (pages=10,file_name='all_projects_links.txt',project_detail_file='all_project_detail_final_test.txt')
-#scrape_project_detail_new(url="https://create.arduino.cc/projecthub/ericBcreator/stereo-neopixel-ring-vu-meter-b28e78?ref=platform&ref_id=424_trending___&offset=11",file_name="test_project_detail.txt")
+#project_links_scraper_cycle (pages=10,file_name='all_projects_links.txt',project_detail_file='all_project_detail_lib.txt')
+scrape_project_detail_new(url="https://create.arduino.cc/projecthub/taunoerik/intelligent-art-969d81?ref=platform&ref_id=424_updated___&offset=4",file_name="test_project_detail2.txt")
 #read_columns("components.txt")
 #read_columns("tools.txt")
 #clean_string ("'b")

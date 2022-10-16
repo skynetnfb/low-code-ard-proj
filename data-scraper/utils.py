@@ -33,8 +33,9 @@ def read_columns(file_name = "test.txt"):
         return row_set
 
 def write_column_name(file_name="components.txt", component_name=""):
-    with open(file_name,'a') as data:
-        data.write(component_name+',')
+    if(component_name!=' '):
+        with open(file_name,'a') as data:
+            data.write(component_name+',')
 
 #read_columns('components.txt')
 #read_columns('tools.txt')
