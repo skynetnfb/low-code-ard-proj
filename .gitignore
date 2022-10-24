@@ -1,4 +1,5 @@
 
 data-scraper/pycparser-master
 data-scraper/code-snippets
+data-scraper/__pycache__
 *.ino

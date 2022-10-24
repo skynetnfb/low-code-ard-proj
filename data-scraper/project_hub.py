@@ -11,18 +11,20 @@ import code_snippet_scraper
 import uuid
 
 
-def project_links_scraper_cycle (pages=276,file_name='links.txt',project_detail_file='all_project_links_final.txt'):
-        with open(file_name,'a') as data:
+def project_links_scraper_cycle (start_page=0,last_pages=276,first_write = True, last_write= False,file_name='links.txt',project_detail_file='all_project_links_final.txt'):
+        if first_write:
+            with open(file_name,'a') as data:
                 data.write('['+'\n')
-        with open(project_detail_file,'a') as detail_data:
+            with open(project_detail_file,'a') as detail_data:
                 detail_data.write('['+'\n')
-        for i in range(1,pages+1):
+        for i in range(start_page,last_pages+1):
             url="https://create.arduino.cc/projecthub?&page={}&sort=recent".format(str(i))
             project_links_scraper(url = url,file_name=file_name,project_detail_file = project_detail_file)
-            print(url)
+            #print(url)
             with open(file_name,'a') as data:
                 data.write(']'+'\n')
-        with open(project_detail_file,'a') as detail_data:
+        if last_write:
+            with open(project_detail_file,'a') as detail_data:
                 detail_data.write(']'+'\n')
 
 def project_links_scraper(url = "",file_name='',project_detail_file='all_project_detail_final_test.txt'):
@@ -48,8 +50,8 @@ def project_links_scraper(url = "",file_name='',project_detail_file='all_project
                             data.write('},'+'\n')
                         else:
                             data.write('}'+'\n')
-            else:
-                print(project_links)
+            #else:
+            #    print(project_links)
        
     except Exception as exc:
         log_str = ''
@@ -88,17 +90,13 @@ def scrape_project_detail_new(url="",file_name=''):
             parser_components = bs4.BeautifulSoup(str(section_components[0].get_text), 'html.parser')
             components = parser_components.find_all("tr", {"class": "part-name"})
         else:components=[]
-        #for c in components:
-        #    print(c.get_text()+",")
-        #print("\n")
+
         section_tools = contents.find_all("section", {"id": "tools"})
         if(section_tools):
             parser_tools = bs4.BeautifulSoup(str(section_tools[0].get_text), 'html.parser')
             tools = parser_tools.find_all("tr", {"class": "part-name"})
         else:tools=[]    
-        #for t in tools:
-        #    print(t.get_text()+",")
-        #print("\n")
+
         section_app = contents.find_all("section", {"id": "apps"})
         if(section_app):
             parser_app = bs4.BeautifulSoup(str(section_app[0].get_text), 'html.parser')
@@ -114,21 +112,21 @@ def scrape_project_detail_new(url="",file_name=''):
             #print(project_views)
             parser_views = bs4.BeautifulSoup(str(project_views[0].get_text), 'html.parser')
             views = parser_views.find_all("span", {"class": "stat-figure"})
-            print ("Views",str(views[0].get_text()).replace(",",''))
+            #print ("Views",str(views[0].get_text()).replace(",",''))
         else:views="0"
 
         project_comments = contents.find_all("li", {"class": "comment-stats"})
         if(project_comments):
             parser_comments = bs4.BeautifulSoup(str(project_comments[0].get_text), 'html.parser')
             comments = parser_comments.find_all("span", {"class": "stat-figure"})
-            print ("Comments"+str(comments[0].get_text()))
+            #print ("Comments"+str(comments[0].get_text()))
         else:comments="0"
 
         project_respect = contents.find_all("li", {"class": "respect-stats"})
         if(project_respect):
             parser_respect = bs4.BeautifulSoup(str(project_respect[0].get_text), 'html.parser')
             respects = parser_respect.find_all("span", {"class": "stat-figure"})
-            print ("Respect"+str(respects[0].get_text()))
+            #print ("Respect"+str(respects[0].get_text()))
         else:respects="0"
 
         project_tags = contents.find_all("div", {"class": "project-banner-inner"})
@@ -137,12 +135,9 @@ def scrape_project_detail_new(url="",file_name=''):
             tags = parser_tags.find_all("a", {"class": "tag"})
             #print(parser_tags)
         else:tags=[]
-        #print (tags)
-        #for a in apps:
-        #    print(a.get_text()+",")
-        #print("\n")
+
         project_id=str(uuid.uuid4())
-        code_snippet_scraper.scrape_code_snippet(url=url,project_id=project_id)
+        
         
         with open(file_name,'a') as data:
             prj_info = '{'+'\n' + '"project_link"'+":"+'"'+url+'"'+","+'\n' +'"project_title"'+":"+'"'+clean_string(str(project_title[0].get_text().encode("utf-8")))+'"'+","+'\n'+'"project_description"'+":"+'"'+clean_string(str(project_description[0].get_text().encode("utf-8")))+'"'+","+'\n'
@@ -164,6 +159,7 @@ def scrape_project_detail_new(url="",file_name=''):
                 prj_info = prj_info + '],'+'\n'
             else:
                 prj_info = prj_info + '"components":'+'[],'
+            
             if tools:
                 prj_info = prj_info + '"tools":'+'' + '['
                 for t in tools:
@@ -213,7 +209,7 @@ def scrape_project_detail_new(url="",file_name=''):
         with open('err_log.txt','a') as data_log:
             log_str = str(time.time())+' : '+ str(msg) + "URL: " + url +'\n'
             data_log.write(log_str)
-                
+    code_snippet_scraper.download_project_code(url=url,project_id=project_id)            
 
 
 
@@ -224,8 +220,8 @@ def scrape_project_detail_new(url="",file_name=''):
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-#project_links_scraper_cycle (pages=10,file_name='all_projects_links.txt',project_detail_file='all_project_detail_lib.txt')
-scrape_project_detail_new(url="https://create.arduino.cc/projecthub/taunoerik/intelligent-art-969d81?ref=platform&ref_id=424_updated___&offset=4",file_name="test_project_detail2.txt")
+project_links_scraper_cycle (start_page=251,last_pages=276,first_write=False,last_write=True,file_name='all_projects_links_final_201022.txt',project_detail_file='all_project_detail_final_201022.txt')
+#scrape_project_detail_new(url="https://create.arduino.cc/projecthub/taunoerik/intelligent-art-969d81?ref=platform&ref_id=424_updated___&offset=4",file_name="test_project_detail2.txt")
 #read_columns("components.txt")
 #read_columns("tools.txt")
 #clean_string ("'b")

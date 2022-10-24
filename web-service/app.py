@@ -1,8 +1,19 @@
-from flask import Flask
+from flask import Flask,render_template
 from flask_restful import reqparse, abort, Api, Resource
-
+from home import *
+from tag_api import *
 app = Flask(__name__)
 api = Api(app)
+
+"""
+PROSSIMI STEP DA FARE:
+-DIVIDERE IL COMPORTAMENTO DEL TEMPLATE DEL PRIMO TAB
+-IMPLEMENTARE IL COMPORTAMENTO DEL TAB2SELEZIONARE COMPONENTS SINGOLI PER OTTENERE LIBRERIE
+- TAB STATEMENTS
+-TAB OVERVIEW DEVE CONTENERE TUTTE LE COMPONENTI E LIBRERIE SELEZIONATE
+-SALVATaggio del codice
+"""
+
 
 TODOS = {
     'todo1': {'task': 'build an API'},
@@ -18,6 +29,17 @@ def abort_if_todo_doesnt_exist(todo_id):
 parser = reqparse.RequestParser()
 parser.add_argument('task')
 
+
+
+class Home(Resource):
+    @app.route('/')
+    @app.route('/tag/<tag>')
+    def index(name=None,tag=None,components=None):
+        name='ReSyDuo'
+        if tag:
+            components = Get_component_by_tag.get(tag)
+        tag_list = ['tag1','tag5','tag3','tag4']
+        return render_template('index.html', name=name,tag_list=tag_list,components=components)
 
 # Todo
 # shows a single todo item and lets you delete a todo item
@@ -36,6 +58,8 @@ class Todo(Resource):
         task = {'task': args['task']}
         TODOS[todo_id] = task
         return task, 201
+
+
 
 
 # TodoList
