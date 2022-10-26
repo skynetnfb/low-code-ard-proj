@@ -9,7 +9,7 @@ components = ['Comp1','Comp2']
 
 
 class Get_component_by_tag(Resource):
-    def get(tag):
+    def get(self,tag):
         if tag:
             return components
 
