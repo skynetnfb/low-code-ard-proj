@@ -1,5 +1,9 @@
 
-data-scraper/pycparser-master
-data-scraper/code-snippets
-data-scraper/__pycache__
+resyduo_components/pycparser-master
+resyduo_components/code-storage
+resyduo_components/__pycache__
 *.ino
+*.csv
+*.txt
+*.pyc
+*.c
