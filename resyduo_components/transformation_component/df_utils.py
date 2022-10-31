@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
-from IPython.display import display
-from utils import *
+#from IPython.display import display
+#from utils import *
 
 
 class DfUtils:
@@ -26,7 +26,7 @@ class DfUtils:
     """
 
     def get_set_by_column_name(self, df, column_name=''):
-        return set(df[column_name].sum());
+        return list(set(df[column_name].sum()));
 
 
     """

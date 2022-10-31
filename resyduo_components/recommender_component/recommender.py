@@ -1,12 +1,11 @@
 from matplotlib.pyplot import get
 from surprise import Dataset,accuracy, NormalPredictor, Reader,SVD, KNNWithMeans,KNNBasic, KNNWithZScore
 from surprise.model_selection import cross_validate, train_test_split,KFold
-import heapq
 import pandas as pd
 from collections import defaultdict
-from operator import itemgetter
 import random
 import math
+import json
 
 
 class Recommender:
@@ -119,6 +118,7 @@ class Recommender:
 
         # define a cross-validation iterator
         kf = KFold(n_splits=fold_split)
+        result = []
         for trainset, testset in kf.split(data):
             # train and test algorithm.
             algo.fit(trainset)
@@ -128,6 +128,11 @@ class Recommender:
             print('RECALL:',sum(rec for rec in recalls.values()) / len(recalls))
             # Compute and print Root Mean Squared Error
             accuracy.rmse(predictions, verbose=True)
+            precision,recall,accu,fprate = self.get_precision_recall_accuracy_fprate(predictions, threshold)
+            success_rate = self.get_success_rate(predictions, n=k, threshold = threshold)
+            partial_result = {"precision": precision,"recall":recall,"accuracy":accu,"false_positive_rate" : fprate, "success_rate" : success_rate} 
+            result.append(partial_result)
+        return result 
 
 
     def get_all_prediction(self, surprise_df):
@@ -182,10 +187,34 @@ class Recommender:
         for uid, user_ratings in top_n.items():
             if(uid== id):
                 print(uid, [iid for (iid, _) in user_ratings])
+        return top_n
 
 
-    def get_success_rate(self, predictions):
-        print('not implemented yet')
+    def get_success_rate(self, predictions, n=10, threshold = 0.3):
+        # First map the predictions to each user.
+        top_n =self.get_top_n(predictions=predictions, n=n)
+        total = len(top_n)
+        n_success = 0
+        for i in top_n:
+            partial_success=0
+            for j in top_n[i]:
+                _,est,true_r = j
+                if(true_r > threshold and est > threshold):
+                    partial_success=1
+            n_success+=partial_success
+        return n_success/total
+
+
+    def write_recommendation_to_file(top_n_recommendations,file):
+     with open(file, 'w') as convert_file:
+          convert_file.write(json.dumps(top_n_recommendations))
+
+    def read_recommendation_from_file(file='recommendation_top10_project_component_0_to_276_cut_5_10.json'):
+        # reading the data from the file
+        with open(file) as f:
+            data = f.read()
+        js = json.loads(data)
+        return js
 
     """
     -------------------------
