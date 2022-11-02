@@ -1,5 +1,3 @@
-from asyncore import write
-from cgitb import html
 import requests
 import bs4
 

@@ -173,7 +173,7 @@ class Recommender:
         
         top_n = defaultdict(list)
         for  uid,iid, true_r, est, _ in predictions:
-            top_n[uid].append((iid, est,true_r))
+            top_n[uid].append((iid, float(round(est,6)),float(true_r)))
 
         # Then sort the predictions for each user and retrieve the k highest ones.
         for iid, user_ratings in top_n.items():
@@ -205,11 +205,11 @@ class Recommender:
         return n_success/total
 
 
-    def write_recommendation_to_file(top_n_recommendations,file):
+    def write_recommendation_to_file(self,top_n_recommendations,file):
      with open(file, 'w') as convert_file:
           convert_file.write(json.dumps(top_n_recommendations))
 
-    def read_recommendation_from_file(file='recommendation_top10_project_component_0_to_276_cut_5_10.json'):
+    def read_recommendation_from_file(self,file='recommendation_top10_project_component_0_to_276_cut_5_10.json'):
         # reading the data from the file
         with open(file) as f:
             data = f.read()

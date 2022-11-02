@@ -1,7 +1,6 @@
 from msilib.schema import Component
 from flask import Flask
 from flask_restful import reqparse, abort, Api, Resource
-from home import * 
 app = Flask(__name__)
 api = Api(app)
 

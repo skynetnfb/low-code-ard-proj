@@ -3,7 +3,7 @@ import re
 import pandas as pd
 import numpy as np
 from IPython.display import display
-from utils import *
+from data_miner_component.utils import *
 from recommender_component import recommender
 from data_miner_component import file_reader
 from transformation_component import df_utils,libraries_tranformation

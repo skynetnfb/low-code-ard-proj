@@ -1,7 +1,8 @@
-from asyncore import write
-from cgitb import html
-from msilib.schema import Component
-from matplotlib.pyplot import title
+#from asyncore import write
+#from cgitb import html
+#from msilib.schema import Component
+#from matplotlib.pyplot import title
+
 import requests
 import bs4
 import csv
@@ -45,7 +46,7 @@ def project_links_scraper(url = "",file_name='',project_detail_file='all_project
                         data.write('{'+'\n')
                         data.write('"project_name":'+'"'+str(link.get_text().encode("utf-8"))+'",'+'\n')
                         data.write('"project_link":'+'"'+"https://create.arduino.cc"+str(link['href'])+'"'+'\n')
-                        scrape_project_detail_new(url="https://create.arduino.cc"+str(link['href']),file_name=project_detail_file)
+                        scrape_project_detail(url="https://create.arduino.cc"+str(link['href']),file_name=project_detail_file)
                         if(link != project_links[-1]):
                             data.write('},'+'\n')
                         else:
@@ -67,7 +68,7 @@ def project_links_scraper(url = "",file_name='',project_detail_file='all_project
 
 
 
-def scrape_project_detail_new(url="",file_name=''):
+def scrape_project_detail(url="",file_name=''):
     #print ("SCRAPE PROJECT: "+str(url))
     res =  requests.get(url)
     
@@ -220,8 +221,8 @@ def scrape_project_detail_new(url="",file_name=''):
 #category_scraper(url = "https://create.arduino.cc/projecthub?category=sensors-environment&page=1&sort=trending",pages=31, file_name='project_links.txt')
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=259&sort=recent",file_name="all_projects.txt")
 #project_links_scraper(url = "https://create.arduino.cc/projecthub?&page=47&sort=recent",file_name="all_projects2.txt")
-project_links_scraper_cycle (start_page=251,last_pages=276,first_write=False,last_write=True,file_name='all_projects_links_final_201022.txt',project_detail_file='all_project_detail_final_201022.txt')
-#scrape_project_detail_new(url="https://create.arduino.cc/projecthub/taunoerik/intelligent-art-969d81?ref=platform&ref_id=424_updated___&offset=4",file_name="test_project_detail2.txt")
+#project_links_scraper_cycle (start_page=251,last_pages=276,first_write=False,last_write=True,file_name='all_projects_links_final_201022.txt',project_detail_file='all_project_detail_final_201022.txt')
+#scrape_project_detail(url="https://create.arduino.cc/projecthub/taunoerik/intelligent-art-969d81?ref=platform&ref_id=424_updated___&offset=4",file_name="test_project_detail2.txt")
 #read_columns("components.txt")
 #read_columns("tools.txt")
 #clean_string ("'b")

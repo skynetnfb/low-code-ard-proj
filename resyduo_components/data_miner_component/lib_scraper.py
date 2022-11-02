@@ -1,5 +1,5 @@
-from asyncore import write
-from cgitb import html
+#from asyncore import write
+#from cgitb import html
 import requests
 import bs4
 
@@ -83,7 +83,7 @@ def detail_scraper(address,name,element,file_name):
 
 
 
-def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/category/communication/', file_name="libraries_test.txt"):
+def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/category/communication/', file_name="libraries.txt", list_lib_file_name = 'lib_list.txt'):
     res =  requests.get(url)
     try:
         res.raise_for_status()
@@ -99,7 +99,7 @@ def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/catego
     container = html_page.find_all("li")
     print(len(container))
 
-    with open('data.txt','a') as data:
+    with open(list_lib_file_name,'a') as data:
 
         for li in html_page.find_all("li"):
             #print(li.get_text(strip=True).encode("utf-8"))
@@ -124,7 +124,7 @@ def category_scraper(url = 'https://www.arduino.cc/reference/en/libraries/catego
             and str(parsed_name) != 'Glossary'):
                 data.write(parsed_name+','+'\n')                
                 with open(file_name,'a') as data1:
-                    detail_scraper(address='https://www.arduino.cc/reference/en/libraries/',name=parsed_name.replace(' ','-').lower(),element='div.single-page',file_name='library_test.txt')
+                    detail_scraper(address='https://www.arduino.cc/reference/en/libraries/',name=parsed_name.replace(' ','-').lower(),element='div.single-page',file_name=file_name)
                     data1.write(','+'\n')
     print('file data updated')
 
@@ -143,3 +143,5 @@ def libraries_scraper(file_name='libraries_details.txt'):
         category_scraper ( url='https://www.arduino.cc/reference/en/libraries/category/uncategorized/', file_name=file_name)
     with open(file_name,'a') as data:
         data.write(']'+'\n')
+
+libraries_scraper(file_name='all_libraries_details.txt')

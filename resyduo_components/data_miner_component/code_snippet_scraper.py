@@ -1,10 +1,5 @@
-from asyncore import write
-from cgitb import html
-from msilib.schema import Component
-from matplotlib.pyplot import title
 import requests
 import bs4
-import csv
 import time
 from utils import *
 import wget
@@ -14,11 +9,9 @@ import os
 
 
 def download_project_code(url="",project_id=''):
-    #print ("SCRAPE PROJECT: "+str(url))
     result =  requests.get(url)
-    
     try:
-        prj_info = ''
+
         result.raise_for_status()
         html_page = bs4.BeautifulSoup(result.text, 'html.parser')
         elem_html = "div"
