@@ -1,5 +1,5 @@
 from flask import Flask,redirect,url_for,render_template
-from flask_restful import reqparse, abort, Api, Resource
+#from flask_restful import reqparse, abort, Api, Resource
 
 import sys
 import os
@@ -11,7 +11,7 @@ from routes.api.tag_api_bp import api_tag_bp
 
 
 app = Flask(__name__)
-api = Api(app)
+#api = Api(app)
 
 """
 

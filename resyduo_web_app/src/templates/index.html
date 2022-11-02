@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Resyduo</title>
+
+    <script src="../static/js/api.js"></script>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link href="custom-style.css" rel="stylesheet">
@@ -86,15 +90,14 @@
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col text-end">
-                                            <button class="btn btn-primary" type="submit">Generate Components</button>
+                                            <button class="btn btn-primary" type="submit" onclick="generate_recommended_components()" >Generate Components</button>
                                         </div>
                                         
                                     </div>
                                 </div>
                                 </div>
-                                {% if components%}
                                 <!--Start Components Recommendation -->
-                                <div class="row mt-3 visually-hidden">
+                                <div id = "tab1-components-section" class="row mt-3 visually-hidden">
                                     <div class="col">
 
                                         <div class="row mt-3">
@@ -103,12 +106,11 @@
 
                                         <div class="row mt-3">
                                             <div class="col">
-                                                <select class="form-select form-select-lg mb-3"
+                                                <select class="form-select form-select-lg mb-3" id = "tab1-select-components"
                                                     aria-label=".form-select-lg example">
                                                     <option selected>Select Components</option>
                                                     <option value="1">Wi-fi</option>
-                                                    <option value="2">Sensor</option>
-                                                    <option value="3">Display</option>
+
                                                 </select>
                                             </div>
                                         </div>
@@ -127,7 +129,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {% endif %}
+                                
                                 <!--Start Lib Recommendation -->
                                 <div class="row mt-3">
                                     <div class="col">
