@@ -6,4 +6,6 @@ tagService = TagService()
 
 def get_all_tag():
     return jsonify(tagService.getAll())
+
+
     
