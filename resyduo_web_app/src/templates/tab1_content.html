@@ -1,88 +1,63 @@
 <div class="row">
     <div class="col">
         <div class="row mt-3">
-            <div class="col">
-                <select class="form-select form-select-lg mb-3"
-                    aria-label=".form-select-lg example">
+            <div class="input-group mb-3">
+                <select class="form-select" id="inputGroupSelectTagTab1">
                     <option selected>Select Tags</option>
-                    {% for i in all_tags %}             
-                    <option value={{i}}>{{i}}</option>
+                    {% for i in all_tags %}
+                    <option value='{{i}}'>{{i}}</option>
                     {% endfor %}
                 </select>
+                <label class="input-group-text" for="inputGroupSelectTagTab1"
+                    onclick="addLabel(this.htmlFor,'tab1TagLabelContainer')">Add</label>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="row mt-3">
-            <div class="col">
-                <span type="button" class="btn btn-primary btn-sm">
-                    Notifications <span class="badge badge-dark">X</span>
-                </span>
-            </div>
-            <div class="row mt-3">
-                <div class="col text-end">
-                    <button class="btn btn-primary btn-sm" type="submit" onclick="generate_recommended_components()" >Generate Components</button>
-                </div>
-                
-            </div>
+        <div class="d-grid gap-2 d-md-block" id='tab1TagLabelContainer'>
         </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary btn-sm" type="submit"
+                onclick="generate_recommended_components('tab1TagLabelContainer')">Generate Components</button>
         </div>
+
+
         <!--Start Components Recommendation -->
-        <div id = "tab1-components-section" class="row mt-3 visually-hidden">
-            <div class="col">
-
-                <div class="row mt-3">
-                    <h2>Recommended Components</h2>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col">
-                        <select class="form-select form-select-lg mb-3" id = "tab1-select-components"
-                            aria-label=".form-select-lg example">
-                            <option selected>Select Components</option>
-                            <option value="1">Wi-fi</option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col">
-                        <button type="button " class="btn btn-success">
-                            Dht11 <span class="badge badge-light">X</span>
-                        </button>
-                        <button type="button " class="btn btn-success">
-                            Xh13 <span class="badge badge-light">X</span>
-                        </button>
-                        <button type="button " class="btn btn-success">
-                            Termometer <span class="badge badge-light">X</span>
-                        </button>
-                    </div>
+        <div id="tab1ComponentSection" class="row mt-3 visually-hidden">
+            <h2>Recommended Components</h2>
+            <div class="row mt-3">
+                <div class="input-group mb-3">
+                    <select class="form-select" id="inputGroupSelectComponentTab1">
+                        <option selected>Select Components</option>
+                    </select>
+                    <label class="input-group-text" for="inputGroupSelectComponentTab1"
+                        onclick="addLabel(this.htmlFor,'tab1ComponentLabelContainer')">Add</label>
                 </div>
             </div>
+            <div class="d-grid gap-2 d-md-block" id='tab1ComponentLabelContainer'>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-primary btn-sm" type="submit"
+                    onclick="generate_recommended_libraries('tab1ComponentLabelContainer','tab1LibrariesSection','inputGroupSelectLibrariesTab1')">Generate Libraries</button>
+            </div>
         </div>
-        
-        <!--Start Lib Recommendation -->
-        <div class="row mt-3">
-            <div class="col">
 
+            <!--Start Lib Recommendation -->
+            <div id="tab1LibrariesSection" class="row mt-3 visually-hidden">
+                <h2>Recommended Libraries</h2>
                 <div class="row mt-3">
-                    <h2>Recommended Libraries</h2>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col">
-                        <button type="button " class="btn btn-warning">
-                            adafruit <span class="badge badge-light">X</span>
-                        </button>
-                        <button type="button " class="btn btn-warning">
-                            BLE <span class="badge badge-light">X</span>
-                        </button>
-                        <button type="button " class="btn btn-warning">
-                            stdio <span class="badge badge-light">X</span>
-                        </button>
+                    <div class="input-group mb-3">
+                        <select class="form-select" id="inputGroupSelectLibrariesTab1">
+                            <option selected>Select Components</option>
+                        </select>
+                        <label class="input-group-text" for="inputGroupSelectLibrariesTab1"
+                            onclick="addLabel(this.htmlFor,'tab1LibrariesLabelContainer')">Add</label>
                     </div>
                 </div>
-
+                <div class="d-grid gap-2 d-md-block" id='tab1LibrariesLabelContainer'>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-primary btn-sm" type="submit"
+                        onclick="addLibrariesToCode('tab1LibrariesLabelContainer')">Add Libraries</button>
+                </div>
             </div>
         </div>
     </div>
-</div>

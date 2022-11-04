@@ -9,3 +9,4 @@ def get_all_components():
 
 def get_components_by_id(id):
     return jsonify(component_service.get_component_by_id(id))
+

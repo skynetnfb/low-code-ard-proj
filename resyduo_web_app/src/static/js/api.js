@@ -21,7 +21,7 @@ function getAllTag(data){
 
 
 function getComponentsByTags(data){
-    return fetch('/api/search/', {
+    return fetch('/api/component/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ Tag Component Functions
 
 */
 
-function getAllTag(data){
+function getAllComponents(){
     return fetch('/api/component/', {
         method: 'GET',
         headers: {
@@ -54,13 +54,15 @@ function getAllTag(data){
     }
 
 function getLibsByComponents(data){
-    return fetch('/api/search/', {
+    console.log('data:'+data)
+    return fetch('/api/library/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
         })
+        .then(response => response.json())
         .catch((error) => {
         console.error('Error:', error);
         });

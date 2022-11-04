@@ -8,6 +8,8 @@ sys.path.append(os.path.dirname(SCRIPT_DIR))
 
 from routes.index_bp import index_bp
 from routes.api.tag_api_bp import api_tag_bp
+from routes.api.components_api_bp import api_components_bp
+from routes.api.libraries_api_bp import api_libraries_bp
 
 
 app = Flask(__name__)
@@ -43,6 +45,8 @@ API Blueprints
 
 ### API ###
 app.register_blueprint(api_tag_bp, url_prefix='/api/tag')
+app.register_blueprint(api_components_bp, url_prefix='/api/component')
+app.register_blueprint(api_libraries_bp, url_prefix='/api/library')
 
 
 @app.route('/')
