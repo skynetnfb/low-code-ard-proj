@@ -57,9 +57,10 @@ function addLabel(htmlFor,labelContainerId){
     labelContainer.appendChild(childLabel)
 }
 
+
+
 function removeTag(label){
     label.remove()
-console.log('removeTag()')
 }
 
 function getLabels(labelContainerID){
