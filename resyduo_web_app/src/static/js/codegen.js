@@ -1,9 +1,9 @@
-function statementContainerView(parentID, cardName) {
-    var parent = document.getElementById(parentID)
+function statementContainerView(parentID, cardName,stype) {
+    //var parent = document.getElementById(parentID)
     var card = document.createElement('div')
     card.className = "card bg-light mb-3"
-    card.id = "variableDeclaration"
-    card.innerHTML = '<div class="card-header"><h5>' + cardName + '</h5></div><div class="card-body" id="body"></div>'
+    card.id = stype
+    card.innerHTML = '<div class="card-header"><h5>' + cardName + '</h5></div><div class="card-body" id="body" stype="'+stype+'"></div>'
     return card
 }
 
@@ -13,8 +13,8 @@ function forViewGenerator(parentID) {
 
 }
 
-function variableViewGenerator(parentID) {
-    card = statementContainerView(parentID)
+function variableViewGenerator(parentID,statement) {
+    card = statementContainerView(parentID,statement,statement)
     var body = card.querySelector('#body')
     body.innerHTML = `<div class="row">
     <div class="col">
@@ -59,7 +59,7 @@ function addStatementView(selectId, parentID) {
     switch (statement) {
         case "variable":
             console.log(statement)
-            variableView = variableViewGenerator(parentID)
+            variableView = variableViewGenerator(parentID,statement)
             container = document.getElementById(parentID)
             container.appendChild(variableView)
             break;
@@ -81,10 +81,15 @@ function generateCode(codeContainer) {
         console.log('if child  hasChilds:')
         childs = codeContainer.childNodes
         console.log(childs.lenght)
-        for (c in childs) {
-            console.log('for child  id:'+c)
-            if(c.id == "body")
-            generateCode(c)
+        var doc = codeContainer
+        var notes = null;
+        for (var i = 0; i < doc.childNodes.length; i++) {
+            console.log('FOR:')
+            if (doc.childNodes[i].className == "card bg-light mb-3") {
+              notes = doc.childNodes[i];
+              break;
+            }
+        console.log(notes)
         }
     }
     else {
@@ -102,7 +107,7 @@ function parseCodeSection(sectionId){
 function generateStatementCode(element) {
     statement = element.id
     switch (statement) {
-        case "variableDeclaration":
+        case "variable":
             console.log('switch generate statement:' + statement)
             break;
         case "if":
