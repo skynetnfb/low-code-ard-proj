@@ -17,7 +17,6 @@ function addStatementToCode(id){
     console.log('Substrin1',codeEditorValue.substring(cursorPosition, codeEditorValue.length))
     newEditorCode = codeEditorValue.substring(0, cursorPosition) +statementCode+codeEditorValue.substring(cursorPosition, codeEditorValue.length)
     codeEditor.value = newEditorCode
-    
 }
 
 

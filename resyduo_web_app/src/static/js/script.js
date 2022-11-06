@@ -88,7 +88,7 @@ function addLibrariesToCode(labelContainerID){
     for (i=0;  i < libraries.length; i++){
         includes = includes+ libraries[i]+"\n"
     }
-    textEditor.innerHTML = includes + textEditor.innerHTML
+    textEditor.value = includes + textEditor.value
 }
 
 
