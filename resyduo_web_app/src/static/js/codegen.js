@@ -14,7 +14,7 @@ function statementContainerView(parentID, cardName, stype, bodyId) {
             </div>
         </div>
     </div>
-    <div class="card-body" id="`+ bodyId + `" stype="` + stype + `" >
+    <div class="card-body" id="`+ bodyId + `" stype="` + stype + `" parentCode ="`+parentID+`" >
     </div>
     `
     return card
@@ -72,27 +72,36 @@ function forViewGenerator(parentID, statement) {
     //console.log('body', body, bodyId)
     selectUniqueId = Date.now()
     body.innerHTML = `
-        <div class="row">
+    <div class="row">
         <div class="col">
-            <div class="card-header">
-                <h5>For iterator</h5>
+            <div class="row">
+                <div class="col">
+                <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="x" aria-label="Variable"
+                    aria-describedby="basic-addon2" id="variableId" value ="x">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">from</span>
+                </div>
             </div>
-                <h5 class="card-title">From</h5>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="int i = 0" aria-label="Variable"
-                        aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">Variable</span>
+                </div>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="x" aria-label="Variable"
+                            aria-describedby="basic-addon2" id="forTo" value ="y.length">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">to</span>
+                        </div>
                     </div>
                 </div>
-                <h5 class="card-title">To</h5>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="100" aria-label="Variable"
-                        aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <span class="input-group-text" id="basic-addon2">Variable</span>
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="0" aria-label="Variable"
+                            aria-describedby="basic-addon2" id="forIncrement"  value ="i++">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2" >increment</div>
                     </div>
                 </div>
+            </div>
                 <div class="row mt-3">
                     <h5>Nest Statement</h5>
                     <div class="input-group mb-3">
@@ -117,7 +126,6 @@ function forViewGenerator(parentID, statement) {
 function addStatementView(selectId, parentID) {
     console.log("PARENT ID addStatementView", parentID)
     var statement = document.getElementById(selectId).value;
-
     container = document.getElementById(parentID)
     //console.log(container)
     switch (statement) {
@@ -137,50 +145,78 @@ function addStatementView(selectId, parentID) {
             console.log(statement)
             break;
     }
-
-
 }
 
 
 function parseCodeSection(sectionId) {
     codeContainer = document.getElementById(sectionId)
-    generateCode(codeContainer)
+    tree = getTreeCode(codeContainer)
+    tree = visitTree(tree, generateStatementCode)
+    console.log("tree with code:", tree )
 }
 
-function generateCode_old(codeContainer) {
-    //console.log('generateCode(parentID):' + codeContainer.children)
-    childs = codeContainer.children
-    if (childs.length > 0) {
-        console.log(codeContainer.children.length > 0)
-        for (var i = 0; i < childs.length; i++) {
-            console.log('FOR childs:' + childs[i])
-            if (childs[i].className == "card bg-light mb-3") {
-                console.log('IF class:' + childs[i].className)
-                generateCode(childs[i])
-            }
-            else if (childs[i].className == "card-body") {
-                //console.log('ELSEIF:' + childs[i].innerHTML)
-                generateStatementCode(childs[i], "lambda function")
-            }
+function visitTree(tree,fn){
+    for(i=0; i < tree.length; i++){
+        if(tree[i].children.length>0){
+            console.log(tree[i].children)
+            visitTree(tree[i].children,(f)=>{})
+        }
+        else{
+            fn(tree, tree[i],'codeSection')
         }
     }
+    return tree
 }
 
 
-function generateCode(codeContainer) {
-    walkDom2(codeContainer);
+
+function getTreeCode(codeContainer) {
+    codeArr=[]
+    let list = []
+    codeArr = walkDom2(codeContainer, 'card-body');
+    for (i = 0; i < codeArr.length; i++){
+        obj = {}
+        obj ["id"] = codeArr[i].id
+        obj ["parentId"] = codeArr[i].getAttribute("parentCode")
+        obj ["statement"] = codeArr[i].getAttribute("stype")
+        obj ["bodyCode"] = ""
+        list.push(obj)  
+    }
+    tree = list_to_tree(list, 'codeSection')
+    return tree
 }
 
+function list_to_tree(list,root) {
+    var map = {}, node, roots = [], i;
+    
+    for (i = 0; i < list.length; i += 1) {
+      map[list[i].id] = i; // initialize the map
+      list[i].children = []; // initialize the children
+    }
+    //console.log('list: ',list)
+    //console.log('map: ',map)
+    for (i = 0; i < list.length; i += 1) {
+      node = list[i];
+      if (node.parentId !== root) {
+        // if you have dangling branches check that map[node.parentId] exists
+        list[map[node.parentId]].children.push(node);
+      } else {
+        roots.push(node);
+      }
+    }
+    //console.log(roots)
+    return roots;
+  }
 
-function walkDom2(start_element) {
-    var arr = []; // we can gather elements here
-    var nest = []
+
+function walkDom2(start_element, filterClass) {
+    var arr = []; // put all elements here
     var loop = function (element) {
         
         do {
             // we can do something with element
             if (element.nodeType == 1) { // do not include text nodes
-                if (element.className == 'card-body') {
+                if (element.className == filterClass) {
                     arr.push(element);
                 }
             }
@@ -188,13 +224,10 @@ function walkDom2(start_element) {
                 loop(element.firstChild);
         }
         while (element = element.nextSibling);
-        
-
     }
     
     //loop(start_element);
     loop(start_element.firstChild); // do not include siblings of start element
-    console.log(arr)
     return arr;
 }
 
@@ -202,19 +235,24 @@ walkDom(document.body);
 
 
 
-function generateStatementCode(element, body) {
+function generateStatementCode(tree, item, root) {
     console.log('generateStatementCode()')
-    statement = element.getAttribute("stype")
+    statement = item.statement
     switch (statement) {
         case "variable":
             console.log('switch generate statement:' + statement)
-            getVariableDeclarationCode(element)
+            item.bodyCode = "variable code"
+            if(item.parentId =! root){
+
+            }
+            //getVariableDeclarationCode(id_element)
             break;
         case "if":
             console.log('switch generate statement:' + statement)
             break;
         case "for":
             console.log('switch generate statement:' + statement)
+            item.bodyCode = "for body code"
             break;
         case "switch":
             console.log('switch generate statement:' + statement)
