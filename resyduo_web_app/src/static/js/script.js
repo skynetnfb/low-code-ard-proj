@@ -92,7 +92,3 @@ function addLibrariesToCode(labelContainerID){
 }
 
 
-function getCursorPosition(textArea){
-    var cursorPosition = textArea.selectionStart
-    console.log(cursorPosition)
-}
