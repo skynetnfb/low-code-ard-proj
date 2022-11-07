@@ -23,10 +23,10 @@ class Utils:
             new_key = k.replace("'","")
             if(new_key!= " "):
                 if (new_key[0]==" "):
-                    print("space 0")
+                    #print("space 0")
                     new_key =new_key[1:]
                 if (new_key[0]==" "):
-                    print("space -1")
+                    #print("space -1")
                     new_key =new_key[:-1]
                 new_dict[new_key] = json[k]
         return new_dict

@@ -4,7 +4,7 @@ function statementContainerView(parentID, cardName, stype, bodyId) {
     card.className = "card bg-light mb-3"
     card.id = stype
     card.innerHTML = `
-    <div class="card-header justify-content-between">
+    <div class="card-header justify-content-between " data-toggle="collapse" data-target="#collapse`+ bodyId + `">
     <div class = "row">    
         <div class = "col">
                 <h5>`+ cardName + `</h5>    
@@ -14,7 +14,9 @@ function statementContainerView(parentID, cardName, stype, bodyId) {
             </div>
         </div>
     </div>
+    <div class="collapse" id="collapse`+ bodyId + `" >
     <div class="card-body" id="`+ bodyId + `" stype="` + stype + `" parentCode ="`+parentID+`" >
+    </div>
     </div>
     `
     return card
@@ -136,6 +138,92 @@ function forViewGenerator(parentID, statement) {
     return card
 }
 
+
+function switchViewGenerator(parentID, statement) {
+    bodyId = 'body' + Date.now()
+    card = statementContainerView(parentID, statement, statement, bodyId)
+    //console.log(card.innerHTML)
+    var body = card.querySelector('#' + bodyId)
+    //console.log('body', body, bodyId)
+    selectUniqueId = Date.now()
+    body.innerHTML = `
+    <div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <select class="form-select" id="variableType">
+                        <option selected value="int">int</option>
+                        <option value="char">char</option>
+                        <option value="long">long</option>
+                        <option value="float">float</option>
+                        <option value="variable">double</option>
+                    </select>
+                    <label class="input-group-text" for="inputGroupSelectLibrariesTab1">Type</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="x" aria-label="Variable"
+                        aria-describedby="basic-addon2" id="variableId" value ="x">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">id</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="0" aria-label="Variable"
+                        aria-describedby="basic-addon2" id="variableValue"  >
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2" >Val
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="input-group mb-3">
+                <select class="form-select" id="`+ selectUniqueId + `" hidden>
+                    <option value="case" selected>state</option>
+                </select>
+                <div class="input-group-append">
+                <label class="input-group-text" for="`+ selectUniqueId + `"
+                    onclick="addStatementView(this.htmlFor,'`+ bodyId + `')">Add State</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    `
+    card.appendChild(body)
+    return card
+}
+
+
+function caseViewGenerator(parentID, statement) {
+    bodyId = 'body' + Date.now()
+    card = statementContainerView(parentID, statement, statement, bodyId)
+    var body = card.querySelector('#' + bodyId)
+    body.innerHTML = `
+<div class="row">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="0" aria-label="Variable"
+            aria-describedby="basic-addon2" id="caseValue"  >
+        <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2" >Val
+        </div>
+    </div>
+</div>
+<div class="input-group">
+  <textarea class="form-control text-light bg-dark" aria-label="With textarea" id="caseBody">//write case body code here</textarea>
+</div>
+`
+    card.appendChild(body)
+    return card
+}
+
+
 function addStatementView(selectId, parentID) {
     console.log("PARENT ID addStatementView", parentID)
     var statement = document.getElementById(selectId).value;
@@ -150,12 +238,16 @@ function addStatementView(selectId, parentID) {
             console.log(statement)
             break;
         case "for":
-            console.log('switch case FOR')
             forView = forViewGenerator(parentID, statement)
             container.appendChild(forView)
             break;
         case "switch":
-            console.log(statement)
+            switchView = switchViewGenerator(parentID, statement)
+            container.appendChild(switchView)
+            break;
+        case "case":
+            caseView = caseViewGenerator(parentID, statement)
+            container.appendChild(caseView)
             break;
     }
 }

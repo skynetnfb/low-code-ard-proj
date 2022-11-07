@@ -298,3 +298,71 @@
 
     </div>
 </div>
+
+<!----------------------
+
+switch
+
+----------------------->
+
+
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="x" aria-label="Variable"
+                        aria-describedby="basic-addon2" id="variableId" value="x">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">from</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="x" aria-label="Variable"
+                        aria-describedby="basic-addon2" id="forTo" value="y.length">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">to</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="0" aria-label="Variable"
+                        aria-describedby="basic-addon2" id="forIncrement" value="i++">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">increment
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <h5>Add State</h5>
+            <div class="input-group mb-3">
+                <select class="form-select" id="`+ selectUniqueId + `">
+                    <option value="for">for</option>
+                    <option value="switch" disabled>switch</option>
+                    <option value="if" disabled>if</option>
+                    <option value="method" disabled>method</option>
+                    <option value="variable" selected>variable</option>
+                </select>
+                <label class="input-group-text" for="`+ selectUniqueId + `"
+                    onclick="addStatementView(this.htmlFor,'`+ bodyId + `')">Add</label>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
+                aria-describedby="basic-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Button</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary btn-sm" type="submit" onclick="addStatementToCode('`+ bodyId + `')">Add
+            code</button>
+    </div>
+</div>
