@@ -7,9 +7,9 @@ async function generate_recommended_components(labelContainerID){
     console.log(tab1_select_components.className)
     console.log(tab1_components_section.className)
     selected_tags = getLabels(labelContainerID)
-    console.log(selected_tags)
-    components = await getAllComponents()
-    console.log('getAllComponents() :'+ components)
+    console.log('selected tags:',selected_tags)
+    components = await getComponentsByTags(selected_tags)
+    console.log('getComponentsByTags() :'+ components)
     for (i=0; i < components.length; i += 1) {
         option = document.createElement('option');
         option.setAttribute('value', components[i]);

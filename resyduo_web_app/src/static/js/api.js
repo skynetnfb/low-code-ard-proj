@@ -21,17 +21,21 @@ function getAllTag(data){
 
 
 function getComponentsByTags(data){
-    return fetch('/api/component/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-        })
-        .catch((error) => {
-        console.error('Error:', error);
-        });
-    }
+    {
+        console.log('data:'+data)
+        return fetch('/api/component/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .catch((error) => {
+            console.error('Error:', error);
+            });
+        }
+}
 
 
 /*
@@ -52,6 +56,16 @@ function getAllComponents(){
         console.error('Error:', error);
         });
     }
+
+
+
+
+/*
+
+Libs APi Functions
+
+*/
+
 
 function getLibsByComponents(data){
     console.log('data:'+data)
