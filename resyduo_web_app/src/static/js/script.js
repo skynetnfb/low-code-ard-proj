@@ -4,6 +4,7 @@ async function generate_recommended_components(labelContainerID){
     console.log("generate_recommended_components()")
     tab1_components_section = document.getElementById("tab1ComponentSection")
     tab1_select_components = document.getElementById("inputGroupSelectComponentTab1")
+    tab1_select_components.innerHTML = "<option selected>Select Components</option>"
     console.log(tab1_select_components.className)
     console.log(tab1_components_section.className)
     selected_tags = getLabels(labelContainerID)

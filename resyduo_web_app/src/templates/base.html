@@ -39,12 +39,6 @@
                             data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane"
                             aria-selected="false">Statements</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="overview-tab" data-bs-toggle="tab"
-                            data-bs-target="#overview-tab-pane" type="button" role="tab"
-                            aria-controls="contact-tab-pane" aria-controls="overview-tab-pane"
-                            aria-selected="false">Overview</button>
-                    </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <!--TAB TAG-->
@@ -63,69 +57,7 @@
                         tabindex="2">
                         {% include 'tab3_content.html' %}
                     </div>
-                    <!--TAB Overview-->
-                    <div class="tab-pane fade" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab"
-                        tabindex="3">
-                        <div class="row">
-                            <div class="col">
-                                <!--Start Components Recommendation -->
-                                <div class="row mt-3">
-                                    <div class="col">
-
-
-                                        <div class="row mt-3">
-                                            <div class="col">
-                                                <select class="form-select form-select-lg mb-3"
-                                                    aria-label=".form-select-lg example">
-                                                    <option selected>Select Components</option>
-                                                    <option value="1">Wi-fi</option>
-                                                    <option value="2">Sensor</option>
-                                                    <option value="3">Display</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col">
-                                                <button type="button " class="btn btn-success">
-                                                    Dht11 <span class="badge badge-light">X</span>
-                                                </button>
-                                                <button type="button " class="btn btn-success">
-                                                    Xh13 <span class="badge badge-light">X</span>
-                                                </button>
-                                                <button type="button " class="btn btn-success">
-                                                    Termometer <span class="badge badge-light">X</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Start Lib Recommendation -->
-                                <div class="row mt-3">
-                                    <div class="col">
-
-                                        <div class="row mt-3">
-                                            <h2>Recommended Libraries</h2>
-                                        </div>
-
-                                        <div class="row mt-3">
-                                            <div class="col">
-                                                <button type="button " class="btn btn-warning">
-                                                    adafruit <span class="badge badge-light">X</span>
-                                                </button>
-                                                <button type="button " class="btn btn-warning">
-                                                    BLE <span class="badge badge-light">X</span>
-                                                </button>
-                                                <button type="button " class="btn btn-warning">
-                                                    stdio <span class="badge badge-light">X</span>
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!--Add new TAB  here-->
                 </div>
             </div>
             <div class="col">

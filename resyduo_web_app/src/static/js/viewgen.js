@@ -36,6 +36,7 @@ function variableViewGenerator(parentID, statement) {
                 <option value="char">char</option>
                 <option value="long">long</option>
                 <option value="float">float</option>
+                <option value="byte">byte</option>
                 <option value="variable">double</option>
             </select>
             <label class="input-group-text" for="inputGroupSelectLibrariesTab1">Type</label>
@@ -157,6 +158,7 @@ function switchViewGenerator(parentID, statement) {
                         <option value="char">char</option>
                         <option value="long">long</option>
                         <option value="float">float</option>
+                        <option value="float">byte</option>
                         <option value="variable">double</option>
                     </select>
                     <label class="input-group-text" for="inputGroupSelectLibrariesTab1">Type</label>
