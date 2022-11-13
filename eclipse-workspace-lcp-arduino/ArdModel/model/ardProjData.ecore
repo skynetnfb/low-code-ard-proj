@@ -8,6 +8,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="info" lowerBound="1" eType="#//ProjectInfo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tools" upperBound="-1"
         eType="#//Tool"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceCodeFiles" upperBound="-1"
+        eType="#//Code"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectInfo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
@@ -38,5 +40,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Id">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Code" eSuperTypes="#//Id">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value"/>
   </eClassifiers>
 </ecore:EPackage>
