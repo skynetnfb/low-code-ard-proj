@@ -6,6 +6,7 @@ from collections import defaultdict
 import random
 import math
 import json
+from IPython.display import display
 
 
 class Recommender:
@@ -126,10 +127,17 @@ class Recommender:
         fn=self.get_false_negative(predictions, threshold)
         tp=self.get_true_positive(predictions, threshold)
         tn=self.get_true_negative(predictions, threshold)
+        print("fp",fp)
+        print("tn",tn)
+        print("tp",tp)
+        print("fn",fn)
         precision = tp/(tp+fp)
         recall = tp/(tp+fn)
         accuracy = (tp+tn)/(tp+tn+fp+fn)
-        fprate = fp/(fp+tn)
+        if((fp+tn)!=0):
+
+            fprate = fp/(fp+tn)
+        else: fprate = fp/100
         return precision,recall,accuracy,fprate
 
 
@@ -138,17 +146,14 @@ class Recommender:
                 'user_based': True,
                 'min_support':1,
                 'shrinkage':0
-                },threshold = 0.2,k=20,fold_split=10):
-        df = pd.read_csv(surprise_df)
-        #display(df)
+                },threshold = 0.15,k=10,fold_split=10):
+        df = pd.read_csv(surprise_df)    
         # A reader is still needed but only the rating_scale param is requiered.
         reader = Reader(rating_scale=(df['rating'].min(),df['rating'].max()))
         #print(df.columns)
         # The columns must correspond to user id, item id and ratings (in that order).
         data = Dataset.load_from_df(df[df.columns], reader)
         algo = KNNWithMeans(sim_options=sim_options, )
-
-
         # define a cross-validation iterator
         kf = KFold(n_splits=fold_split)
         result = []
@@ -159,6 +164,8 @@ class Recommender:
             precisions, recalls = self.precision_recall_at_k(predictions, k=k, threshold=threshold)
             precistion_at_k_avg = sum(rec for rec in precisions.values()) / len(precisions)
             recall_at_k_avg = sum(rec for rec in recalls.values()) / len(recalls)
+            print("Precision", precistion_at_k_avg)
+            print("Recall", recall_at_k_avg)
             # Compute and print Root Mean Squared Error
             rmse = accuracy.rmse(predictions, verbose=False)
             mae = accuracy.mae(predictions, verbose=False)

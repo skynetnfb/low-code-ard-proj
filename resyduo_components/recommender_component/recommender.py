@@ -1,4 +1,4 @@
-from surprise import Dataset,accuracy, Reader, KNNWithMeans,KNNBasic
+from surprise import Dataset,accuracy, Reader, KNNWithMeans,KNNBasic, SVD
 from surprise.model_selection import train_test_split,KFold
 from surprise.model_selection import GridSearchCV
 import pandas as pd
@@ -146,7 +146,7 @@ class Recommender:
         #print(df.columns)
         # The columns must correspond to user id, item id and ratings (in that order).
         data = Dataset.load_from_df(df[df.columns], reader)
-        algo = KNNWithMeans(sim_options=sim_options, )
+        algo = KNNWithMeans(sim_options=sim_options )
 
 
         # define a cross-validation iterator
@@ -169,9 +169,15 @@ class Recommender:
         return result 
 
 
-    def get_all_prediction(self, surprise_df):
-        
+    def get_all_prediction(self, surprise_df, drop_zero = False,sim_options={
+                'name': 'pearson',
+                'user_based': True,
+                'min_support':1,
+                'shrinkage':100
+                }):
         df = pd.read_csv(surprise_df)
+        if(drop_zero):
+            df = df[df.rating != 0]
         #display(df)
         # A reader is still needed but only the rating_scale param is requiered.
         reader = Reader(rating_scale=(df['rating'].min(),df['rating'].max()))
@@ -182,7 +188,7 @@ class Recommender:
         # test set is made of 25% of the ratings.
         trainset, testset = train_test_split(data, test_size=0.25)
         # Build an algorithm, and train it.
-        algo = KNNBasic()
+        algo = KNNWithMeans(sim_options=sim_options,k=100)
         algo.fit(trainset)
         predictions = algo.test(testset)
         return predictions
@@ -216,7 +222,7 @@ class Recommender:
 
         return top_n
 
-    def get_top_n_by_id(self, predictions, n=5, id=''):
+    def get_top_n_by_id(self, predictions, n=10, id=''):
         top_n = self.get_top_n(predictions, n)
         for uid, user_ratings in top_n.items():
             if(uid== id):

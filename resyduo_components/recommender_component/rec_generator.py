@@ -12,7 +12,8 @@ class RecGenerator():
 
         """
 
-        tag_comp_predictions=recommender.get_all_prediction('C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\tag_data\\surprise_tag_comp_cut_5_5.csv')
+        #tag_comp_predictions=recommender.get_all_prediction(drop_zero=True,surprise_df='C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\tag_data\\surprise_tag_comp_cut_1_1.csv')
+        #tag_comp_predictions=recommender.get_all_prediction(drop_zero=True,surprise_df='C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\tag_data\\surprise_tag_comp_cut_1_1.csv')
 
 
 
@@ -22,9 +23,12 @@ class RecGenerator():
 
         """
 
-        recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=tag_comp_predictions,n=10)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top10_rec_surprise_tag_comp_cut_5_5.json')
+        #recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=tag_comp_predictions,n=10)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top10_rec_surprise_tag_comp_cut_1_1_without_zero.json')
 
-        recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=tag_comp_predictions,n=20)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top20_rec_surprise_tag_comp_cut_5_5.json')
+        #recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=tag_comp_predictions,n=20)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top20_rec_surprise_tag_comp_cut_1_1_without_zero.json')
+
+        #tag_comp_predictions=recommender.get_all_prediction(drop_zero=True,surprise_df='C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\tag_data\\surprise_tag_comp_cut_5_10.csv')
+        #recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=tag_comp_predictions,n=20)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top20_rec_surprise_tag_comp_cut_5_10_without_zero.json')
 
         """
         Generate Prediction for Components Libraries recommendation Data
@@ -35,5 +39,19 @@ class RecGenerator():
         
         #recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=comp_lib_predictions,n=10)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top10_rec_surprise_comp_lib_cut_5_5.json')
 
+
+        #comp_lib_predictions=recommender.get_all_prediction(drop_zero=True, surprise_df='C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\libraries_data\\surprise_df_comp_lib_df_cut_5_5.csv')
+        
+        #recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=comp_lib_predictions,n=10)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top10_rec_surprise_comp_lib_cut_5_5_without_zero.json')
+
+
+        #comp_lib_predictions=recommender.get_all_prediction(drop_zero=True, surprise_df='C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\libraries_data\\surprise_df_comp_lib_df_cut_5_5.csv')
+        
+        #recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=comp_lib_predictions,n=5)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top5_rec_surprise_comp_lib_cut_5_5_without_zero.json')
+
+
+        comp_lib_predictions=recommender.get_all_prediction(drop_zero=True, surprise_df='C:\\progetti\\low-code-ard-proj\\resyduo_components\\transformation_component\\transformation_storage\\libraries_data\\surprise_df_comp_lib_df_cut_5_5.csv')
+        
+        recommender.write_recommendation_to_file(top_n_recommendations = dict(recommender.get_top_n(predictions=comp_lib_predictions,n=10)), file = 'C:\\progetti\\low-code-ard-proj\\resyduo_components\\recommender_component\\recommendation_storage\\top5_rec_surprise_comp_lib_cut_5_5_without_zero_svd.json')
 rec_generator = RecGenerator()
 rec_generator.generate_recommendations()

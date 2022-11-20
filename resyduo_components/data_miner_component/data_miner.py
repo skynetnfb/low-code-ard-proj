@@ -1,4 +1,4 @@
-from project_hub_scraper import *
+from data_miner_component.project_miner import *
 
 class DataMiner:
 

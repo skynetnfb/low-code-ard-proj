@@ -25,6 +25,7 @@ class  ComponentService:
         tag_predictions = TagService.tag_prediction
         result = []
         for i in id_list:
+            print(len(tag_predictions[i]))
             result.extend(tag_predictions[i])
         result = list(set(result)) 
         result.sort()

@@ -1,14 +1,8 @@
-#from asyncore import write
-#from cgitb import html
-#from msilib.schema import Component
-#from matplotlib.pyplot import title
-
 import requests
 import bs4
-import csv
 import time
 from utils import *
-import code_snippet_scraper
+import data_miner_component.code_miner as code_miner
 import uuid
 
 
@@ -210,7 +204,7 @@ def scrape_project_detail(url="",file_name=''):
         with open('err_log.txt','a') as data_log:
             log_str = str(time.time())+' : '+ str(msg) + "URL: " + url +'\n'
             data_log.write(log_str)
-    code_snippet_scraper.download_project_code(url=url,project_id=project_id)            
+    code_miner.download_project_code(url=url,project_id=project_id)            
 
 
 
