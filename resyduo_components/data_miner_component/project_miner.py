@@ -63,7 +63,7 @@ def project_links_scraper(url = "",file_name='',project_detail_file='all_project
 
 
 def scrape_project_detail(url="",file_name=''):
-    #print ("SCRAPE PROJECT: "+str(url))
+
     res =  requests.get(url)
     
     try:
@@ -74,12 +74,7 @@ def scrape_project_detail(url="",file_name=''):
         sel_elem = html_page.select(elem_html)
         contents = sel_elem[0]
         project_title = contents.find_all("h1", {"class": "project-title"})
-        #print('"title": '+str(project_title[0].get_text()))
         project_description = contents.find_all("p", {"class": "project-one-liner"})
-
-        #print('"decription": '+str(project_description[0].get_text()))
-        #print("\n")
-
         section_components = contents.find_all("section", {"id": "components"})
         if(section_components):
             parser_components = bs4.BeautifulSoup(str(section_components[0].get_text), 'html.parser')
@@ -97,38 +92,30 @@ def scrape_project_detail(url="",file_name=''):
             parser_app = bs4.BeautifulSoup(str(section_app[0].get_text), 'html.parser')
             apps = parser_app.find_all("tr", {"class": "part-name"})
         else:apps=[]
-
-        
-        # I dati minati di views respect e comments non corrispondono a quelli ispezionati!!
-        # non credo sia risolvibile
         
         project_views = contents.find_all("li", {"class": "impression-stats"})
         if(project_views):
             #print(project_views)
             parser_views = bs4.BeautifulSoup(str(project_views[0].get_text), 'html.parser')
             views = parser_views.find_all("span", {"class": "stat-figure"})
-            #print ("Views",str(views[0].get_text()).replace(",",''))
         else:views="0"
 
         project_comments = contents.find_all("li", {"class": "comment-stats"})
         if(project_comments):
             parser_comments = bs4.BeautifulSoup(str(project_comments[0].get_text), 'html.parser')
             comments = parser_comments.find_all("span", {"class": "stat-figure"})
-            #print ("Comments"+str(comments[0].get_text()))
         else:comments="0"
 
         project_respect = contents.find_all("li", {"class": "respect-stats"})
         if(project_respect):
             parser_respect = bs4.BeautifulSoup(str(project_respect[0].get_text), 'html.parser')
             respects = parser_respect.find_all("span", {"class": "stat-figure"})
-            #print ("Respect"+str(respects[0].get_text()))
         else:respects="0"
 
         project_tags = contents.find_all("div", {"class": "project-banner-inner"})
         if(project_tags):
             parser_tags = bs4.BeautifulSoup(str(project_tags[0].get_text), 'html.parser')
             tags = parser_tags.find_all("a", {"class": "tag"})
-            #print(parser_tags)
         else:tags=[]
 
         project_id=str(uuid.uuid4())
@@ -158,8 +145,6 @@ def scrape_project_detail(url="",file_name=''):
             if tools:
                 prj_info = prj_info + '"tools":'+'' + '['
                 for t in tools:
-
-                    #a= contents.find_all("a", {"class": "project-one-liner"}, href=True)
                     if(t.get_text()!=""):
                         if(t!=tools[len(tools)-1]):
 
@@ -176,8 +161,6 @@ def scrape_project_detail(url="",file_name=''):
             if tags:
                 prj_info = prj_info + '"tags":'+'' + '['
                 for t in tags:
-
-                    #a= contents.find_all("a", {"class": "project-one-liner"}, href=True)
                     if(t.get_text()!=""):
                         if(t!=tags[len(tags)-1]):
 
@@ -190,13 +173,11 @@ def scrape_project_detail(url="",file_name=''):
             else:
 
                 prj_info = prj_info + '"tags":'+'[]'   
-            #data.write('"category": "null",'+'\n')
             prj_info = prj_info + '}'','+'\n'
-            #print(str(prj_info))
             data.write(prj_info)
     except Exception as exc:
         msg=str(time.time())+ url +'\n'
-        print('-------------------Exception raised PRJ DETAIL', exc.__class__)
+        print('Exception raised PRJ DETAIL', exc.__class__)
         if hasattr(exc, 'message'):
             msg = exc.message
         else:
