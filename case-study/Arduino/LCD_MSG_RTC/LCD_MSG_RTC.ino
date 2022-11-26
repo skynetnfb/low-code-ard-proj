@@ -72,6 +72,6 @@ char *res = malloc(5);
 
 String pad(int n){
   sprintf(res, "%02d", n);
-  // "%02d" formatta una stringa di lunghezza 1 in una di lunghezza 2
+  // "%02d" format the value of a sting with lenght 1 in a 2 char string
   return String(res);
   }

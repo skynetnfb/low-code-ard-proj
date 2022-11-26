@@ -127,17 +127,10 @@ class Recommender:
         fn=self.get_false_negative(predictions, threshold)
         tp=self.get_true_positive(predictions, threshold)
         tn=self.get_true_negative(predictions, threshold)
-        print("fp",fp)
-        print("tn",tn)
-        print("tp",tp)
-        print("fn",fn)
         precision = tp/(tp+fp)
         recall = tp/(tp+fn)
         accuracy = (tp+tn)/(tp+tn+fp+fn)
-        if((fp+tn)!=0):
-
-            fprate = fp/(fp+tn)
-        else: fprate = fp/100
+        fprate = fp/(fp+tn)
         return precision,recall,accuracy,fprate
 
 
@@ -146,14 +139,17 @@ class Recommender:
                 'user_based': True,
                 'min_support':1,
                 'shrinkage':0
-                },threshold = 0.15,k=10,fold_split=10):
-        df = pd.read_csv(surprise_df)    
+                },threshold = 0.15,k=20,fold_split=10):
+        df = pd.read_csv(surprise_df)
+        #display(df)
         # A reader is still needed but only the rating_scale param is requiered.
         reader = Reader(rating_scale=(df['rating'].min(),df['rating'].max()))
         #print(df.columns)
         # The columns must correspond to user id, item id and ratings (in that order).
         data = Dataset.load_from_df(df[df.columns], reader)
-        algo = KNNWithMeans(sim_options=sim_options, )
+        algo = KNNWithMeans(sim_options=sim_options )
+
+
         # define a cross-validation iterator
         kf = KFold(n_splits=fold_split)
         result = []
@@ -164,8 +160,39 @@ class Recommender:
             precisions, recalls = self.precision_recall_at_k(predictions, k=k, threshold=threshold)
             precistion_at_k_avg = sum(rec for rec in precisions.values()) / len(precisions)
             recall_at_k_avg = sum(rec for rec in recalls.values()) / len(recalls)
-            print("Precision", precistion_at_k_avg)
-            print("Recall", recall_at_k_avg)
+            # Compute and print Root Mean Squared Error
+            rmse = accuracy.rmse(predictions, verbose=False)
+            mae = accuracy.mae(predictions, verbose=False)
+            precision_avg,recall_avg,accu,fprate = self.get_precision_recall_accuracy_fprate(predictions, threshold)
+            success_rate = self.get_success_rate(predictions, n=k, threshold = threshold)
+            partial_result = {"precision": precistion_at_k_avg,"recall":recall_at_k_avg,"accuracy":accu,"false_positive_rate" : fprate, "success_rate" : success_rate, "rmse" : rmse, "mae" : mae } 
+            result.append(partial_result)
+        return result 
+    
+    def predict_and_validate_2(self,surprise_df='surprise df',sim_options={
+                'name': 'msd',
+                'user_based': True,
+                'min_support':1,
+                'shrinkage':0
+                },threshold = 0.2,k=20,fold_split=10):
+        df = surprise_df
+        #display(df)
+        # A reader is still needed but only the rating_scale param is requiered.
+        reader = Reader(rating_scale=(df['rating'].min(),df['rating'].max()))
+        #print(df.columns)
+        # The columns must correspond to user id, item id and ratings (in that order).
+        data = Dataset.load_from_df(df[df.columns], reader)
+        algo = KNNWithMeans(sim_options=sim_options )
+        # define a cross-validation iterator
+        kf = KFold(n_splits=fold_split)
+        result = []
+        for trainset, testset in kf.split(data):
+            # train and test algorithm.
+            algo.fit(trainset)
+            predictions = algo.test(testset)
+            precisions, recalls = self.precision_recall_at_k(predictions, k=k, threshold=threshold)
+            precistion_at_k_avg = sum(rec for rec in precisions.values()) / len(precisions)
+            recall_at_k_avg = sum(rec for rec in recalls.values()) / len(recalls)
             # Compute and print Root Mean Squared Error
             rmse = accuracy.rmse(predictions, verbose=False)
             mae = accuracy.mae(predictions, verbose=False)
